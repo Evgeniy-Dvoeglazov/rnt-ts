@@ -6,14 +6,18 @@
   4.	Экземпляр класса должен предоставлять доступ к следующим свойствам: count (количество элементов), first (первый элемент), last (последний элемент)
 */
 
-class DoubleLinkedListNode<T> {
-  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) {}
+type Func = (value: { [key: string]: any }) => string;
 
-  toString(callback?: (arg: T) => string): string {
+// Класс элемента списка
+class DoubleLinkedListNode<T> {
+  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) { }
+
+  toString(callback?: Func): string {
     return callback ? callback(this.value) : `${this.value}`;
   }
 }
 
+// Класс списка
 class DoubleLinkedList<T> {
   public first: DoubleLinkedListNode<T> | null;
   public last: DoubleLinkedListNode<T> | null;
@@ -215,22 +219,25 @@ class DoubleLinkedList<T> {
   }
 
   // Создать сроку из всех значений узлов
-  toString(): string {
-    return this.toArray().map(node => node.toString()).toString();
-  } 
-
+  toString(callback?: Func): string {
+    return this.toArray().map(node => node.toString(callback)).toString();
+  }
 }
+
+const nodeStringifier: Func = (value) => `${value.a}:${value.b}`;
 
 const doubleLinkedList = new DoubleLinkedList();
 
-doubleLinkedList.prepend('name');
-doubleLinkedList.prepend('age');
-doubleLinkedList.prepend('ffff');
-doubleLinkedList.delete('name');
-doubleLinkedList.append('name');
-doubleLinkedList.find('age');
-doubleLinkedList.fromArray([1, 2]);
+// doubleLinkedList.prepend('name');
+// doubleLinkedList.prepend('age');
+// doubleLinkedList.prepend('ffff');
+// doubleLinkedList.delete('name');
+// doubleLinkedList.append('name');
+// doubleLinkedList.find('age');
+// doubleLinkedList.fromArray([1, 2]);
+// doubleLinkedList.prepend({a: 3, b: 'fff'});
 
-console.log(doubleLinkedList.first);
-console.log(doubleLinkedList.last);
-console.log(doubleLinkedList.count);
+// console.log(doubleLinkedList.first);
+// console.log(doubleLinkedList.last);
+// console.log(doubleLinkedList.count);
+// console.log(doubleLinkedList.toString());

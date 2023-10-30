@@ -18,7 +18,9 @@ type B = GetFunctionTypes<string>; // unknown
   Напишите GetUserType тип, который бы работал следующим образом:
  */
 
-type GetUserType<T> = T extends { user: unknown } ?  T[keyof T] : unknown;
+type GetUserType<T> = T extends { [key: string]: unknown } ?  T[keyof T] : unknown;
+// либо так 
+// type GetUserType<T> = T extends { user: unknown } ?  T[keyof T] : unknown;
 
 type C = GetUserType<string>; // unknown
 type D = GetUserType<{ user: string }>; // string
