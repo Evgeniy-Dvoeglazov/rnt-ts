@@ -10,9 +10,9 @@ interface IUser {
   phone: number;
 }
 
-type UserGetters<T> = {
-  getName: () => T extends { name: unknown } ? T['name'] : unknown,
-  getPhone: () => T extends { phone: unknown } ? T['phone'] : unknown
+type UserGetters<T extends {name: unknown, phone: unknown}> = {
+  getName: () => T['name'],
+  getPhone: () => T['phone']
 }; // NOT IMPLEMENTED
 
 type F = UserGetters<IUser>; // { getName: () => string; getPhone: () => number }

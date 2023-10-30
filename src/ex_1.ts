@@ -7,11 +7,7 @@
 */
 
 class DoubleLinkedListNode<T> {
-  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) {
-    this.value = value;
-    this.next = next;
-    this.previous = previous;
-  }
+  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) {}
 
   toString(callback?: (arg: T) => string): string {
     return callback ? callback(this.value) : `${this.value}`;
