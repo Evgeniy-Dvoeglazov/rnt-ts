@@ -6,18 +6,14 @@
   4.	Экземпляр класса должен предоставлять доступ к следующим свойствам: count (количество элементов), first (первый элемент), last (последний элемент)
 */
 
-type Func = (value: { [key: string]: any }) => string;
-
-// Класс элемента списка
-class DoubleLinkedListNode<T> {
-  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) { }
-
-  toString(callback?: Func): string {
-    return callback ? callback(this.value) : `${this.value}`;
-  }
+interface ArrayConstructor {
+  from(arrayLike: any, mapFn?, thisArg?): Array<any>;
 }
 
-// Класс списка
+class DoubleLinkedListNode<T> {
+  constructor(public value: T, public next: DoubleLinkedListNode<T> | null = null, public previous: DoubleLinkedListNode<T> | null = null) { }
+}
+
 class DoubleLinkedList<T> {
   public first: DoubleLinkedListNode<T> | null;
   public last: DoubleLinkedListNode<T> | null;
@@ -29,7 +25,6 @@ class DoubleLinkedList<T> {
     this.count = 0;
   }
 
-  // Создать новый узел в начале списка
   prepend(value: T): DoubleLinkedList<T> {
     const newNode = new DoubleLinkedListNode(value, this.first);
 
@@ -47,7 +42,6 @@ class DoubleLinkedList<T> {
     return this;
   }
 
-  // Создать новый узел в конце списка
   append(value: T): DoubleLinkedList<T> {
     const newNode = new DoubleLinkedListNode(value);
 
@@ -68,11 +62,12 @@ class DoubleLinkedList<T> {
     return this;
   }
 
-  // Удалить узел
-  delete(value: T): DoubleLinkedListNode<T> {
+  delete(value: T): DoubleLinkedListNode<T>[] {
     if (!this.first) {
       return null;
     }
+
+    const deletedNodes: DoubleLinkedListNode<T>[] = [];
 
     let deletedNode: DoubleLinkedListNode<T> = null;
     let currentNode = this.first;
@@ -80,9 +75,11 @@ class DoubleLinkedList<T> {
     while (currentNode) {
       if (currentNode.value === value) {
         deletedNode = currentNode;
+        deletedNodes.push(deletedNode);
 
         if (deletedNode === this.first) {
           this.first = deletedNode.next;
+          this.count--;
 
           if (this.first) {
             this.first.previous = null;
@@ -93,6 +90,7 @@ class DoubleLinkedList<T> {
           }
         } else if (deletedNode === this.last) {
           this.last = deletedNode.previous;
+          this.count--;
 
           if (this.last) {
             this.last.next = null;
@@ -103,18 +101,15 @@ class DoubleLinkedList<T> {
 
           previousNode.next = nextNode;
           nextNode.previous = previousNode;
+          this.count--;
         }
       }
-
       currentNode = currentNode.next;
     }
 
-    this.count--;
-
-    return deletedNode;
+    return deletedNodes;
   }
 
-  // Найти первый узел с переданным знаяением
   find(value: T): DoubleLinkedListNode<T> {
     if (!this.first) {
       return null;
@@ -123,7 +118,7 @@ class DoubleLinkedList<T> {
     let currentNode = this.first;
 
     while (currentNode) {
-      if (value !== undefined && currentNode.value === value) {
+      if (currentNode.value === value) {
         return currentNode;
       }
 
@@ -133,13 +128,12 @@ class DoubleLinkedList<T> {
     return null;
   }
 
-  // Удалить последний узел
-  deleteLast(): DoubleLinkedListNode<T> {
+  pop(): DoubleLinkedListNode<T> {
     if (!this.last) {
       return null;
     }
 
-    const deletedLast = this.last;
+    const deletedLast = this.last
 
     if (this.last.previous) {
       this.last = this.last.previous;
@@ -154,8 +148,7 @@ class DoubleLinkedList<T> {
     return deletedLast;
   }
 
-  // Удалить первый узел
-  deleteFirst(): DoubleLinkedListNode<T> {
+  shift(): DoubleLinkedListNode<T> {
     if (!this.first) {
       return null;
     }
@@ -175,26 +168,46 @@ class DoubleLinkedList<T> {
     return deletedFirst;
   }
 
-  // Создать узлы из массива
-  fromArray(values: T[]): DoubleLinkedList<T> {
-    values.forEach(value => this.append(value));
+  // fromArray(values: T[]): DoubleLinkedList<T> {
+  //   values.forEach(value => this.append(value));
 
-    return this;
+  //   return this;
+  // }
+
+  from(values: T): DoubleLinkedListNode<T>[] {
+    const doubleLinkedList = Array.from(values).map((value) => {
+      const newNode = new DoubleLinkedListNode(value);
+
+      if (this.last) {
+        this.last.next = newNode;
+      }
+
+      newNode.previous = this.last;
+
+      this.last = newNode;
+
+      if (!this.first) {
+        this.first = newNode;
+      }
+
+      this.count++;
+      return newNode;
+    });
+
+    return doubleLinkedList;
   }
 
-  // Создать массив из всех узлов 
-  toArray(): DoubleLinkedListNode<T>[] {
-    const nodes = [];
+  toArray(): T[] {
+    const nodeValues = [];
     let currentNode = this.first;
     while (currentNode) {
-      nodes.push(currentNode);
+      nodeValues.push(currentNode.value);
       currentNode = currentNode.next;
     }
 
-    return nodes;
+    return nodeValues;
   }
 
-  // Создать обратный список
   reverse(): DoubleLinkedList<T> {
     let currentNode = this.first;
     let previousNode = null;
@@ -205,10 +218,12 @@ class DoubleLinkedList<T> {
       previousNode = currentNode.previous;
 
       currentNode.next = previousNode;
-
       currentNode.previous = nextNode;
 
-      previousNode = currentNode;
+      // При последней итерации текущий элемент станет null
+      // Поэтому нам нужно записать его данные в предпоследний.
+      // и в дальнейшем сделать его первым
+      previousNode = currentNode; // Если строку убрать, на один элемент в списке станет меньше.
       currentNode = nextNode;
     }
 
@@ -217,18 +232,14 @@ class DoubleLinkedList<T> {
 
     return this;
   }
-
-  // Создать сроку из всех значений узлов
-  toString(callback?: Func): string {
-    return this.toArray().map(node => node.toString(callback)).toString();
-  }
 }
-
-const nodeStringifier: Func = (value) => `${value.a}:${value.b}`;
 
 const doubleLinkedList = new DoubleLinkedList();
 
-// doubleLinkedList.prepend('name');
+// doubleLinkedList.append('a');
+// doubleLinkedList.append('b');
+// doubleLinkedList.append('c');
+// doubleLinkedList.from('abcd')
 // doubleLinkedList.prepend('age');
 // doubleLinkedList.prepend('ffff');
 // doubleLinkedList.delete('name');
@@ -240,4 +251,5 @@ const doubleLinkedList = new DoubleLinkedList();
 // console.log(doubleLinkedList.first);
 // console.log(doubleLinkedList.last);
 // console.log(doubleLinkedList.count);
-// console.log(doubleLinkedList.toString());
+
+// console.log(doubleLinkedList.from('abcd'));
