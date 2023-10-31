@@ -170,12 +170,6 @@ class DoubleLinkedList<T> {
     return deletedFirst;
   }
 
-  // fromArray(values: T[]): DoubleLinkedList<T> {
-  //   values.forEach(value => this.append(value));
-
-  //   return this;
-  // }
-
   from(values: T): DoubleLinkedListNode<T>[] {
     const doubleLinkedList = Array.from(values).map((value) => {
       const newNode = new DoubleLinkedListNode(value);
