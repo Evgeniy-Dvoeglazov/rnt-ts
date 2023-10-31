@@ -6,8 +6,10 @@
   4.	Экземпляр класса должен предоставлять доступ к следующим свойствам: count (количество элементов), first (первый элемент), last (последний элемент)
 */
 
+
+// Для работы с Array.from()
 interface ArrayConstructor {
-  from(arrayLike: any, mapFn?, thisArg?): Array<any>;
+  from(arrayLike: any): Array<any>;
 }
 
 class DoubleLinkedListNode<T> {
