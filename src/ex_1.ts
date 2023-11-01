@@ -27,7 +27,7 @@ class DoubleLinkedList<T> {
     this.count = 0;
   }
 
-  prepend(value: T): DoubleLinkedList<T> {
+  unshift(value: T): DoubleLinkedList<T> {
     const newNode = new DoubleLinkedListNode(value, this.first);
 
     if (this.first) {
@@ -44,7 +44,7 @@ class DoubleLinkedList<T> {
     return this;
   }
 
-  append(value: T): DoubleLinkedList<T> {
+  push(value: T): DoubleLinkedList<T> {
     const newNode = new DoubleLinkedListNode(value);
 
     if (this.last) {
@@ -232,17 +232,6 @@ class DoubleLinkedList<T> {
 
 const doubleLinkedList = new DoubleLinkedList();
 
-// doubleLinkedList.append('a');
-// doubleLinkedList.append('b');
-// doubleLinkedList.append('c');
-// doubleLinkedList.from('abcd')
-// doubleLinkedList.prepend('age');
-// doubleLinkedList.prepend('ffff');
-// doubleLinkedList.delete('name');
-// doubleLinkedList.append('name');
-// doubleLinkedList.find('age');
-// doubleLinkedList.fromArray([1, 2]);
-// doubleLinkedList.prepend({a: 3, b: 'fff'});
 
 // console.log(doubleLinkedList.first);
 // console.log(doubleLinkedList.last);
