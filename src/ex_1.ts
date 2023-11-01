@@ -71,35 +71,33 @@ class DoubleLinkedList<T> {
 
     const deletedNodes: DoubleLinkedListNode<T>[] = [];
 
-    let deletedNode: DoubleLinkedListNode<T> = null;
     let currentNode = this.first;
 
     while (currentNode) {
       if (currentNode.value === value) {
-        deletedNode = currentNode;
-        deletedNodes.push(deletedNode);
+        deletedNodes.push(currentNode);
 
-        if (deletedNode === this.first) {
-          this.first = deletedNode.next;
+        if (currentNode === this.first) {
+          this.first = currentNode.next;
           this.count--;
 
           if (this.first) {
             this.first.previous = null;
           }
 
-          if (deletedNode === this.last) {
+          if (currentNode === this.last) {
             this.last = null;
           }
-        } else if (deletedNode === this.last) {
-          this.last = deletedNode.previous;
+        } else if (currentNode === this.last) {
+          this.last = currentNode.previous;
           this.count--;
 
           if (this.last) {
             this.last.next = null;
           }
         } else {
-          const previousNode = deletedNode.previous;
-          const nextNode = deletedNode.next;
+          const previousNode = currentNode.previous;
+          const nextNode = currentNode.next;
 
           previousNode.next = nextNode;
           nextNode.previous = previousNode;
@@ -232,9 +230,17 @@ class DoubleLinkedList<T> {
 
 const doubleLinkedList = new DoubleLinkedList();
 
+doubleLinkedList.push('a');
+doubleLinkedList.push('b');
+doubleLinkedList.push('c');
+doubleLinkedList.push('d');
+doubleLinkedList.push('d');
+doubleLinkedList.push('d');
+doubleLinkedList.push('d');
+doubleLinkedList.delete('d')
 
 // console.log(doubleLinkedList.first);
 // console.log(doubleLinkedList.last);
 // console.log(doubleLinkedList.count);
 
-// console.log(doubleLinkedList.from('abcd'));
+console.log(doubleLinkedList);
