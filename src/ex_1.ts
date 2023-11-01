@@ -226,21 +226,43 @@ class DoubleLinkedList<T> {
 
     return this;
   }
+
+  [Symbol.iterator](): { next: () => { value: T, done: boolean } | { done: boolean, value?: null } } {
+    let currentElement = this.first;
+
+    return {
+      next: () => {
+        if (currentElement) {
+          const currentValue = currentElement.value;
+          currentElement = currentElement.next;
+
+          return { value: currentValue, done: false };
+        } else {
+          return { done: true };
+        }
+      },
+    };
+  }
 }
 
 const doubleLinkedList = new DoubleLinkedList();
+
 
 doubleLinkedList.push('a');
 doubleLinkedList.push('b');
 doubleLinkedList.push('c');
 doubleLinkedList.push('d');
-doubleLinkedList.push('d');
-doubleLinkedList.push('d');
-doubleLinkedList.push('d');
-doubleLinkedList.delete('d')
+
+for (let node of doubleLinkedList) {
+  console.log(node);
+}
+
+console.log();
+
+for (let node of doubleLinkedList.reverse()) {
+  console.log(node);
+}
 
 // console.log(doubleLinkedList.first);
 // console.log(doubleLinkedList.last);
 // console.log(doubleLinkedList.count);
-
-console.log(doubleLinkedList);

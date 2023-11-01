@@ -18,5 +18,8 @@
   "homepage": "https://github.com/evgenii-ts/RNT_RD-TS_Homework#readme",
   "devDependencies": {
     "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@types/node": "^20.8.10"
   }
 }
