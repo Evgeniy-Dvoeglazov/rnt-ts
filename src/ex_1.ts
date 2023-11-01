@@ -168,25 +168,12 @@ class DoubleLinkedList<T> {
     return deletedFirst;
   }
 
-  from(values: T): DoubleLinkedListNode<T>[] {
-    const doubleLinkedList = Array.from(values).map((value) => {
-      const newNode = new DoubleLinkedListNode(value);
+  static from<T>(value: Iterable<T>): DoubleLinkedList<unknown> {
+    const doubleLinkedList = new this();
 
-      if (this.last) {
-        this.last.next = newNode;
-      }
-
-      newNode.previous = this.last;
-
-      this.last = newNode;
-
-      if (!this.first) {
-        this.first = newNode;
-      }
-
-      this.count++;
-      return newNode;
-    });
+    for (let element of value) {
+      doubleLinkedList.push(element);
+    }
 
     return doubleLinkedList;
   }
@@ -245,24 +232,30 @@ class DoubleLinkedList<T> {
   }
 }
 
-const doubleLinkedList = new DoubleLinkedList();
+// const doubleLinkedList = new DoubleLinkedList();
 
 
-doubleLinkedList.push('a');
-doubleLinkedList.push('b');
-doubleLinkedList.push('c');
-doubleLinkedList.push('d');
+// doubleLinkedList.push('a');
+// doubleLinkedList.push('b');
+// doubleLinkedList.push('c');
+// doubleLinkedList.push('d');
 
-for (let node of doubleLinkedList) {
-  console.log(node);
-}
+// for (let node of doubleLinkedList) {
+//   console.log(node);
+// }
 
-console.log();
+// console.log();
 
-for (let node of doubleLinkedList.reverse()) {
-  console.log(node);
-}
+// for (let node of doubleLinkedList.reverse()) {
+//   console.log(node);
+// }
 
+
+// console.log();
+
+const doubleLinkedList = DoubleLinkedList.from('dddddd');
+
+console.log(doubleLinkedList);
 // console.log(doubleLinkedList.first);
 // console.log(doubleLinkedList.last);
 // console.log(doubleLinkedList.count);
