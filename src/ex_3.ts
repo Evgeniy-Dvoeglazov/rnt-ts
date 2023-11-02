@@ -10,14 +10,8 @@ interface IUser {
   phone: number;
 }
 
-// type UserGetters<T extends {name: unknown, phone: unknown}> = {
-//   getName: () => T['name'],
-//   getPhone: () => T['phone'],
-// }; 
-
 type UserGetters<T> = {
   [key in keyof T as `get${Capitalize<string & key>}`]: () => T[key]
 };
-
 
 type F = UserGetters<IUser>; // { getName: () => string; getPhone: () => number }

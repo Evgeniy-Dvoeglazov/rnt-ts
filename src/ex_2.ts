@@ -4,7 +4,7 @@
     2.	Если передана не функция, то результат unknown
 */
 
-type GetFunctionTypes<T> = T extends ((...arg: string[]) => number) ? [...Parameters<T>, ReturnType<T>]: unknown;
+type GetFunctionTypes<T> = T extends ((...arg: unknown[]) => infer RETURN_TYPE) ? [...Parameters<T>, RETURN_TYPE]: unknown;
 
 function func(a: string): number {
   return 1;
@@ -18,7 +18,6 @@ type B = GetFunctionTypes<string>; // unknown
   Напишите GetUserType тип, который бы работал следующим образом:
  */
 
-// type GetUserType<T> = T extends { [key: string]: unknown } ? T['user'] : unknown;
 type GetUserType<T> = T extends { user: infer USER_TYPE } ? USER_TYPE : unknown;
 
 type C = GetUserType<string>; // unknown
