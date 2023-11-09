@@ -1,0 +1,40 @@
+.searchMovie {
+  position: relative;
+  z-index: 1;
+}
+
+.searchMovie__title {
+  text-transform: uppercase;
+  margin: 60px 0 20px;
+  font-weight: 500;
+}
+
+.searchMovie__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 0px 0px 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+.searchMovie__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchMovie__filter {
+  display: flex;
+  align-items: center;
+}
+
+.searchMovie__filter-description {
+  text-transform: uppercase;
+  margin: 0 20px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+

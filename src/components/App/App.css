@@ -1,0 +1,8 @@
+.app {
+  box-sizing: border-box;
+  max-width: 1920px;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
