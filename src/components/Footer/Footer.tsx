@@ -1,12 +1,10 @@
-import './Footer.css';
-import Logo from '../Logo/Logo';
+import './footer.css';
+import Logo from '../logo/logo';
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className='footer'>
       <Logo />
     </footer>
   )
 }
-
-export default Footer;

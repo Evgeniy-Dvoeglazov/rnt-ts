@@ -1,9 +1,7 @@
-import './SearchButton.css';
+import './searchButton.css';
 
-function SearchButton() {
+export default function SearchButton() {
   return (
     <button className='searchButton' type='submit'>Search</button>
   )
 }
-
-export default SearchButton;

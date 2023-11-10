@@ -1,11 +1,11 @@
-.main {
+.searchMoviePage {
   flex-grow: 1;
   display: flex;
   align-items: center;
   margin: auto;
 }
 
-.main__title {
+.searchMoviePage__title {
   margin: 0;
   font-weight: 400;
   font-size: 50px;

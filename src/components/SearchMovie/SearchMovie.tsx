@@ -1,15 +1,18 @@
-import SearchButton from "../SearchButton/SearchButton";
-import RadioButton from "../Radio-button/RadioButton";
-import './SearchMovie.css'
-import { useState } from "react";
+import './searchMovie.css'
+import SearchButton from "../searchButton/searchButton";
+import RadioButton from "../radioButton/radioButton";
+import { useState, useCallback } from "react";
 
-function SearchMovie() {
+export default function SearchMovie() {
 
-  const [radioSelected, setRadioSelected] = useState<boolean>(true);
+  const [searchMode, setSearchMode] = useState<string>('title');
 
-  function handleChangeRadio() {
-    setRadioSelected(!radioSelected);
-  }
+  const handleChangeRadio = useCallback(() => {
+    if (searchMode === 'title') {
+      setSearchMode('genre');
+    } else
+      setSearchMode('title');
+  }, [searchMode])
 
   return (
     <section className='searchMovie'>
@@ -20,14 +23,14 @@ function SearchMovie() {
           <div className='searchMovie__filter'>
             <p className='searchMovie__filter-description'>search by</p>
             <RadioButton
-              name='title'
-              checked={radioSelected}
-              changeRadio={handleChangeRadio}
+              mode='title'
+              checked={searchMode === 'title'}
+              onChange={handleChangeRadio}
             />
             <RadioButton
-              name='genre'
-              checked={!radioSelected}
-              changeRadio={handleChangeRadio}
+              mode='genre'
+              checked={searchMode === 'genre'}
+              onChange={handleChangeRadio}
             />
           </div>
           <SearchButton />
@@ -36,5 +39,3 @@ function SearchMovie() {
     </section>
   )
 }
-
-export default SearchMovie;

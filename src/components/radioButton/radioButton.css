@@ -2,13 +2,16 @@
   margin-right: 10px;
 }
 
+.radioButton:last-child {
+  margin: 0;
+}
+
 .radioButton__input {
   display: none;
 }
 
-.radioButton__label {
+.radioButton__span {
   background-color: #131313;
-  display: inline-block;
   cursor: pointer;
   padding: 7px 30px;
   border: 1px solid #fff;
@@ -19,12 +22,12 @@
   font-size: 12px;
 }
 
-.radioButton__input:checked+.radioButton__label {
+.radioButton__input:checked+.radioButton__span {
   background-color: #16b939;
   opacity: 1;
   border: 1px solid #16b939;
 }
 
-.radioButton__label:hover {
+.radioButton__span:hover {
   opacity: 1;
 }

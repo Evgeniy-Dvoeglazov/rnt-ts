@@ -1,8 +1,8 @@
-import SearchMovie from '../SearchMovie/SearchMovie';
-import Logo from '../Logo/Logo';
-import './Header.css';
+import SearchMovie from '../searchMovie/searchMovie';
+import Logo from '../logo/logo';
+import './header.css';
 
-function Header() {
+export default function Header() {
   return (
     <header className='header'>
       <Logo />
@@ -10,5 +10,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header;
