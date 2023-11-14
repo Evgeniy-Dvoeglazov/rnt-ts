@@ -1,13 +1,27 @@
 .searchMoviePage {
   flex-grow: 1;
-  display: flex;
-  align-items: center;
-  margin: auto;
+  margin: 0 150px 50px;
+  color: #000;
 }
 
-.searchMoviePage__title {
+.searchMoviePage__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 50px;
+  background-color: #dddddd;
+  padding: 10px 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.searchMoviePage__moviesCount {
   margin: 0;
-  font-weight: 400;
-  font-size: 50px;
-  color: #000;
+}
+
+.searchMoviePage__filter {
+  display: flex;
+}
+
+.searchMoviePage__filterDescription {
+  margin: 0 30px 0 0;
 }

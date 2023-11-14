@@ -31,11 +31,13 @@ export default function SearchMovie() {
               mode='title'
               checked={searchMode === SearchMode.Title}
               onChange={handleChangeRadio}
+              variant='searchMode'
             />
             <RadioButton
               mode='genre'
               checked={searchMode === SearchMode.Genre}
               onChange={handleChangeRadio}
+              variant='searchMode'
             />
           </div>
           <SearchButton />

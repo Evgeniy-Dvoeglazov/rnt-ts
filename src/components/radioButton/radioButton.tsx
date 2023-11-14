@@ -1,16 +1,17 @@
 import './radioButton.css';
 import type { ComponentPropsWithoutRef } from 'react';
 
-interface RadioButtonProps extends ComponentPropsWithoutRef<'input'> {
-  mode: string
+interface RadioButtonProps extends Omit<ComponentPropsWithoutRef<'input'>, 'type'> {
+  mode: string,
+  variant: 'searchMode' | 'filterMode',
 }
 
 export default function RadioButton(props: RadioButtonProps) {
 
   return (
-      <label className='radioButton'>
-        <input className='radioButton__input' id={props.mode} type='radio' name='searchMovieFilter' {...props} />
-        <span className='radioButton__span'>{props.mode}</span>
-      </label>
+    <label className='radioButton'>
+      <input {...props} className='radioButton__input' type='radio' />
+      <span className={`radioButton__span radioButton__span_${props.variant}`}>{props.mode}</span>
+    </label>
   )
 }
