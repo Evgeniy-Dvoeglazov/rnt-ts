@@ -1,0 +1,19 @@
+.header {
+  position: relative;
+  padding: 40px 150px;
+  background-image: url('../../pictures/header-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header::before {
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .8;
+  content: '';
+}

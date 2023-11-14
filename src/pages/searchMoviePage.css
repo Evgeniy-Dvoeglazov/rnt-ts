@@ -1,0 +1,13 @@
+.searchMoviePage {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.searchMoviePage__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 50px;
+  color: #000;
+}
