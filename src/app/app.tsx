@@ -1,6 +1,6 @@
 import Header from '../components/header/header';
 import SearchMoviePage from '../pages/searchMoviePage';
-import Footer from '../components/Footer/footer';
+import Footer from '../components/footer/footer';
 import './app.css';
 
 export default function App() {

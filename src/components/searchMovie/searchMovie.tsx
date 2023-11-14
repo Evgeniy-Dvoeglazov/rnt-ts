@@ -1,7 +1,7 @@
 import './searchMovie.css'
-import SearchButton from "../searchButton/searchButton";
-import RadioButton from "../radioButton/radioButton";
-import { useState, useCallback } from "react";
+import SearchButton from '../searchButton/searchButton';
+import RadioButton from '../radioButton/radioButton';
+import { useState, useCallback } from 'react';
 
 enum SearchMode {
   Title = 'title',

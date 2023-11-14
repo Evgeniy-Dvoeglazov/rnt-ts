@@ -1,5 +1,5 @@
 import './radioButton.css';
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from 'react';
 
 interface RadioButtonProps extends ComponentPropsWithoutRef<'input'> {
   mode: string
