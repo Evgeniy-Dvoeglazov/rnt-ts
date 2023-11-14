@@ -2,7 +2,7 @@ import './radioButton.css';
 import type { ComponentPropsWithoutRef } from "react";
 
 interface RadioButtonProps extends ComponentPropsWithoutRef<'input'> {
-  mode: string,
+  mode: string
 }
 
 export default function RadioButton(props: RadioButtonProps) {
