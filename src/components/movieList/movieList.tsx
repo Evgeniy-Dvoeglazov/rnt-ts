@@ -3,7 +3,6 @@ import { moviesData } from "../../data/moviesData";
 import Movie from "../movie/movie";
 
 export default function MovieList() {
-
   return (
     <ul className='movieList'>
       {
@@ -11,10 +10,7 @@ export default function MovieList() {
           return (
             <Movie
               key={movie.id}
-              title={movie.title}
-              image={movie.image}
-              genre={movie.genre}
-              year={movie.year}
+              {...movie}
             />
           )
         })

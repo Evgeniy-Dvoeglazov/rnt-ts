@@ -1,13 +1,15 @@
 import './movie.css';
 
-interface movieProps {
+type Genre = 'drama' | 'horror' | 'adventure' | 'fantasy' | 'thriller' | 'blockbuster';
+
+interface MovieProps {
   title: string,
   image: string,
-  genre: string,
+  genre: Genre,
   year: number
-}
+};
 
-export default function Movie(props: movieProps) {
+export default function Movie(props: MovieProps) {
   return (
     <li className='movie'>
       <img className='movie__image' src={props.image} alt={props.title} />

@@ -7,18 +7,14 @@ import { useState, useCallback } from "react";
 enum FilterMode {
   Title = 'title',
   ReleaseDate = 'release date'
-}
+};
 
 export default function SearchMoviePage() {
-
   const [searchMode, setSearchMode] = useState<FilterMode>(FilterMode.Title);
 
   const handleChangeRadio = useCallback(() => {
-    if (searchMode === 'title') {
-      setSearchMode(FilterMode.ReleaseDate);
-    } else
-      setSearchMode(FilterMode.Title);
-  }, [searchMode])
+    setSearchMode(searchMode === 'title' ? FilterMode.ReleaseDate : FilterMode.Title);
+  }, [searchMode]);
 
   return (
     <section className='searchMoviePage'>
@@ -30,13 +26,13 @@ export default function SearchMoviePage() {
             mode='release date'
             checked={searchMode === FilterMode.ReleaseDate}
             onChange={handleChangeRadio}
-            variant='filterMode'
+            variant='withoutBorder'
           />
           <RadioButton
             mode='title'
             checked={searchMode === FilterMode.Title}
             onChange={handleChangeRadio}
-            variant='filterMode'
+            variant='withoutBorder'
           />
         </div>
       </div>

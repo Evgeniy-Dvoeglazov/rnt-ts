@@ -1,4 +1,4 @@
-import './searchMovie.css'
+import './searchMovie.css';
 import SearchButton from '../searchButton/searchButton';
 import RadioButton from '../radioButton/radioButton';
 import { useState, useCallback } from 'react';
@@ -6,18 +6,14 @@ import { useState, useCallback } from 'react';
 enum SearchMode {
   Title = 'title',
   Genre = 'genre'
-}
+};
 
 export default function SearchMovie() {
-
   const [searchMode, setSearchMode] = useState<SearchMode>(SearchMode.Title);
 
   const handleChangeRadio = useCallback(() => {
-    if (searchMode === 'title') {
-      setSearchMode(SearchMode.Genre);
-    } else
-      setSearchMode(SearchMode.Title);
-  }, [searchMode])
+    setSearchMode(searchMode === 'title' ? SearchMode.Genre : SearchMode.Title);
+  }, [searchMode]);
 
   return (
     <section className='searchMovie'>
@@ -31,13 +27,13 @@ export default function SearchMovie() {
               mode='title'
               checked={searchMode === SearchMode.Title}
               onChange={handleChangeRadio}
-              variant='searchMode'
+              variant='withBorder'
             />
             <RadioButton
               mode='genre'
               checked={searchMode === SearchMode.Genre}
               onChange={handleChangeRadio}
-              variant='searchMode'
+              variant='withBorder'
             />
           </div>
           <SearchButton />
