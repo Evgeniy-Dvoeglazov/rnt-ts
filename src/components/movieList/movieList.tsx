@@ -1,16 +1,16 @@
 import './movieList.css';
 import { moviesData } from "../../data/moviesData";
-import Movie from "../movie/movie";
+import { Movie, MovieProps } from "../movie/movie";
 
 export default function MovieList() {
   return (
     <ul className='movieList'>
       {
-        moviesData.map((movie) => {
+        moviesData.map((movie: MovieProps) => {
           return (
             <Movie
-              key={movie.id}
               {...movie}
+              key={movie.id}
             />
           )
         })

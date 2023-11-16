@@ -1,8 +1,8 @@
 import './searchMoviePage.css';
-import MovieList from '../components/movieList/movieList';
-import { moviesData } from '../data/moviesData';
-import RadioButton from '../components/radioButton/radioButton';
-import { useState, useCallback } from "react";
+import MovieList from '../../components/movieList/movieList';
+import { moviesData } from '../../data/moviesData';
+import RadioButton from '../../components/radioButton/radioButton';
+import { useState, useCallback } from 'react';
 
 enum FilterMode {
   Title = 'title',
