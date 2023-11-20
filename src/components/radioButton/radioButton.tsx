@@ -8,7 +8,6 @@ interface RadioButtonProps extends Omit<ComponentPropsWithoutRef<'input'>, 'type
 };
 
 export default function RadioButton(props: RadioButtonProps) {
-
   const radioButtonInputClasses = classNames('radioButton__input', props.className);
 
   const radioButtonSpanClasses = classNames('radioButton__span', `radioButton__span_${props.variant}`);

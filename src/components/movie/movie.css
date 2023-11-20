@@ -4,6 +4,7 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 3px 3px 10px #a8a8a8;
+  cursor: pointer;
 }
 
 .movie__image {

@@ -25,3 +25,11 @@
 .searchMoviePage__filterDescription {
   margin: 0 30px 0 0;
 }
+
+.searchMoviePage__title {
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+  font-size: 50px;
+  padding: 100px 0 0 0;
+}
