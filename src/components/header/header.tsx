@@ -3,15 +3,14 @@ import './header.css';
 import SearchMovie from '../searchMovie/searchMovie';
 import MovieInfo from '../movieInfo/movieInfo';
 import { SearchMode } from '../../app/app';
-import { MovieType } from '../movie/movie';
+import { MovieObject } from '../movie/movie';
 import BackToSearchButton from '../backToSearchButton/backToSearchButton';
 
 interface HeaderProps {
-  movieOpened: boolean;
   searchMode: SearchMode;
-  selectedMovie: MovieType;
-  addSearchPhrase: (arg: string) => void;
-  onChange: () => void;
+  selectedMovie: MovieObject;
+  clickSearchButton: (value: string) => void;
+  changeSearchMode: () => void;
   backToSearch: () => void;
 }
 
@@ -19,7 +18,7 @@ export default function Header(props: HeaderProps) {
   return (
     <header className='header'>
       {
-        props.movieOpened
+        props.selectedMovie
           ? <>
             <div className='header__navigation'>
               <Logo />
@@ -34,8 +33,8 @@ export default function Header(props: HeaderProps) {
           : <>
             <Logo />
             <SearchMovie
-              addSearchPhrase={props.addSearchPhrase}
-              onChange={props.onChange}
+              clickSearchButton={props.clickSearchButton}
+              changeSearchMode={props.changeSearchMode}
               searchMode={props.searchMode}
             />
           </>

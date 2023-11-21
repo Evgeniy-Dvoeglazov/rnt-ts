@@ -1,22 +1,22 @@
 import './movieInfo.css';
-import { MovieType } from '../movie/movie';
+import { MovieObject } from '../movie/movie';
 
 interface MovieInfoProps {
-  selectedMovie: MovieType;
+  selectedMovie: MovieObject;
 }
 
-export default function MovieInfo(props: MovieInfoProps) {
+export default function MovieInfo({ selectedMovie }: MovieInfoProps) {
   return (
     <div className='movieInfo'>
-      <img className='movieInfo__image' src={props.selectedMovie.image} alt='movie-image' />
+      <img className='movieInfo__image' src={selectedMovie.image} alt='movie-image' />
       <div className='movieInfo__text'>
-        <h2 className='movieInfo__title'>{props.selectedMovie.title}</h2>
-        <p className='movieInfo__genre'>{props.selectedMovie.genre}</p>
+        <h2 className='movieInfo__title'>{selectedMovie.title}</h2>
+        <p className='movieInfo__genre'>{selectedMovie.genre}</p>
         <div className='movieInfo__moreData'>
-          <p className='movieInfo__year'>{props.selectedMovie.year}</p>
-          <p className='movieInfo__duration'>{props.selectedMovie.duration} min</p>
+          <p className='movieInfo__year'>{selectedMovie.year}</p>
+          <p className='movieInfo__duration'>{selectedMovie.duration} min</p>
         </div>
-        <p className='movieInfo__description'>{props.selectedMovie.description}</p>
+        <p className='movieInfo__description'>{selectedMovie.description}</p>
       </div>
     </div>
   )

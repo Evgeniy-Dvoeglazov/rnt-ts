@@ -3,7 +3,7 @@ import Header from '../components/header/header';
 import SearchMoviePage from '../pages/searchMoviePage/searchMoviePage';
 import Footer from '../components/footer/footer';
 import { useState, useCallback } from 'react';
-import { MovieType } from '../components/movie/movie';
+import { MovieObject } from '../components/movie/movie';
 
 export enum SearchMode {
   Title = 'title',
@@ -11,44 +11,31 @@ export enum SearchMode {
 };
 
 export function App() {
-  const [isMovieInfoOpen, setIsMovieInfoOpen] = useState(false);
-  const [searchPhrase, setSearchPhrase] = useState('');
+  const [searchString, setSearchString] = useState('');
   const [searchMode, setSearchMode] = useState<SearchMode>(SearchMode.Title);
-  const [selectedMovie, setSelectedMovie] = useState<MovieType>(null);
+  const [selectedMovie, setSelectedMovie] = useState<MovieObject>(null);
 
-  const addSearchMode = useCallback(() => {
-    setSearchMode(searchMode === SearchMode.Title
-      ? SearchMode.Genre
-      : SearchMode.Title);
-  }, [searchMode]);
-
-  function openMovieInfo(movie: MovieType) {
-    setIsMovieInfoOpen(true);
+  const openMovieInfo = useCallback((movie: MovieObject) => {
     setSelectedMovie(movie);
     window.scrollTo(0, 0);
-  }
-
-  function addSearchPhrase(value: string) {
-    setSearchPhrase(value);
-  }
-
-  function backToSearch() {
-    setIsMovieInfoOpen(false)
-  }
+  }, []);
 
   return (
     <div className='app'>
       <Header
-        movieOpened={isMovieInfoOpen}
-        addSearchPhrase={addSearchPhrase}
+        clickSearchButton={(value) => setSearchString(value)}
         searchMode={searchMode}
-        onChange={addSearchMode}
+        changeSearchMode={() =>
+          setSearchMode(searchMode === SearchMode.Title
+            ? SearchMode.Genre
+            : SearchMode.Title)
+        }
         selectedMovie={selectedMovie}
-        backToSearch={backToSearch}
+        backToSearch={() => setSelectedMovie(null)}
       />
       <SearchMoviePage
-        onDoubleClick={openMovieInfo}
-        searchPhrase={searchPhrase}
+        doubleMovieClick={openMovieInfo}
+        searchString={searchString}
         searchMode={searchMode}
       />
       <Footer />
