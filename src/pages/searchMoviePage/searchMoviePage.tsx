@@ -2,14 +2,14 @@ import './searchMoviePage.css';
 import MovieList from '../../components/movieList/movieList';
 import { moviesData } from '../../data/moviesData';
 import RadioButton from '../../components/radioButton/radioButton';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { MovieObject } from '../../components/movie/movie';
 import { SearchMode } from '../../app/app';
 
 enum FilterMode {
   Title = 'title',
   ReleaseDate = 'release date'
-};
+}
 
 interface SearchMoviePageProps {
   doubleMovieClick: (movie: MovieObject) => void;
@@ -18,28 +18,27 @@ interface SearchMoviePageProps {
 }
 
 export default function SearchMoviePage({ searchMode, searchString, doubleMovieClick }: SearchMoviePageProps) {
-  const copyMoviesData = [...moviesData] as MovieObject[];
-  const [movies, setMovies] = useState([]);
-  const [sortedMovies, setSortedMovies] = useState([]);
+  const [sortedMovies, setSortedMovies] = useState<MovieObject[]>([]);
   const [filterMode, setFilterMode] = useState<FilterMode>(FilterMode.Title);
 
   const handleChangeRadio = useCallback(() => {
-    setFilterMode(filterMode === FilterMode.Title
+    setFilterMode(filterMode => filterMode === FilterMode.Title
       ? FilterMode.ReleaseDate
       : FilterMode.Title);
-  }, [filterMode, searchMode]);
+  }, []);
+
+  const movies = useMemo(() => {
+    return searchMode === SearchMode.Title
+      ? sortedMovies.filter((movie: MovieObject) => movie.title.toLowerCase().includes(searchString))
+      : sortedMovies.filter((movie: MovieObject) => movie.genre.toLowerCase().includes(searchString))
+  }, [searchString, sortedMovies, searchMode]);
 
   useEffect(() => {
+    const copyMoviesData = [...moviesData] as MovieObject[];
     setSortedMovies(filterMode === FilterMode.Title
       ? copyMoviesData.sort((a, b) => a.title.localeCompare(b.title))
       : copyMoviesData.sort((a, b) => a.year - b.year));
   }, [filterMode]);
-
-  useEffect(() => {
-    setMovies(searchMode === SearchMode.Title
-      ? sortedMovies.filter((movie) => movie.title.toLowerCase().includes(searchString))
-      : sortedMovies.filter((movie) => movie.genre.toLowerCase().includes(searchString)));
-  }, [searchString, sortedMovies]);
 
   return (
     <section className='searchMoviePage'>

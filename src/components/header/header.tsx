@@ -4,11 +4,11 @@ import SearchMovie from '../searchMovie/searchMovie';
 import MovieInfo from '../movieInfo/movieInfo';
 import { SearchMode } from '../../app/app';
 import { MovieObject } from '../movie/movie';
-import BackToSearchButton from '../backToSearchButton/backToSearchButton';
+import Button from '../button/button';
 
 interface HeaderProps {
   searchMode: SearchMode;
-  selectedMovie: MovieObject;
+  selectedMovie: MovieObject | null;
   clickSearchButton: (value: string) => void;
   changeSearchMode: () => void;
   backToSearch: () => void;
@@ -22,8 +22,10 @@ export default function Header(props: HeaderProps) {
           ? <>
             <div className='header__navigation'>
               <Logo />
-              <BackToSearchButton
-                backToSearch={props.backToSearch}
+              <Button
+                onClick={props.backToSearch}
+                variant='withoutBackground'
+                title='Back to search'
               />
             </div>
             <MovieInfo

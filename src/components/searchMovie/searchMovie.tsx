@@ -1,8 +1,8 @@
 import './searchMovie.css';
-import SearchButton from '../searchButton/searchButton';
 import RadioButton from '../radioButton/radioButton';
 import { useCallback, useRef } from 'react';
 import { SearchMode } from '../../app/app';
+import Button from '../button/button';
 
 interface SearchMovieProps {
   searchMode: SearchMode;
@@ -14,9 +14,8 @@ export default function SearchMovie(props: SearchMovieProps) {
   const inputRef = useRef(null);
 
   const handleChangeSearchMode = useCallback(() => {
-    inputRef.current.value = '';
-    props.changeSearchMode();
-  }, [props.searchMode]);
+      props.changeSearchMode();
+  }, [props]);
 
   return (
     <section className='searchMovie'>
@@ -38,8 +37,10 @@ export default function SearchMovie(props: SearchMovieProps) {
             variant='withBorder'
           />
         </div>
-        <SearchButton
+        <Button
           onClick={() => props.clickSearchButton(inputRef.current.value)}
+          variant='withBackground'
+          title='Search'
         />
       </div>
     </section>
