@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import type { ComponentPropsWithoutRef } from 'react';
 
 interface buttonProps extends Omit<ComponentPropsWithoutRef<'button'>, 'type'> {
-  onClick: () => void;
   variant: 'withBackground' | 'withoutBackground';
   title: string;
 }
