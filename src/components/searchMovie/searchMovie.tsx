@@ -1,44 +1,48 @@
 import './searchMovie.css';
-import SearchButton from '../searchButton/searchButton';
 import RadioButton from '../radioButton/radioButton';
-import { useState, useCallback } from 'react';
+import { useCallback, useRef } from 'react';
+import { SearchMode } from '../../app/app';
+import Button from '../button/button';
 
-enum SearchMode {
-  Title = 'title',
-  Genre = 'genre'
-};
+interface SearchMovieProps {
+  searchMode: SearchMode;
+  clickSearchButton: (value: string) => void;
+  changeSearchMode: () => void;
+}
 
-export default function SearchMovie() {
-  const [searchMode, setSearchMode] = useState<SearchMode>(SearchMode.Title);
+export default function SearchMovie(props: SearchMovieProps) {
+  const inputRef = useRef(null);
 
-  const handleChangeRadio = useCallback(() => {
-    setSearchMode(searchMode === 'title' ? SearchMode.Genre : SearchMode.Title);
-  }, [searchMode]);
+  const handleChangeSearchMode = useCallback(() => {
+      props.changeSearchMode();
+  }, [props]);
 
   return (
     <section className='searchMovie'>
       <h1 className='searchMovie__title'>Find your movie</h1>
-      <form className='searchMovie__form'>
-        <input className='searchMovie__input' type='text' placeholder={`Enter ${searchMode === SearchMode.Title ? 'title' : 'genre'}`} />
-        <div className='searchMovie__buttons'>
-          <div className='searchMovie__filter'>
-            <p className='searchMovie__filter-description'>search by</p>
-            <RadioButton
-              mode='title'
-              checked={searchMode === SearchMode.Title}
-              onChange={handleChangeRadio}
-              variant='withBorder'
-            />
-            <RadioButton
-              mode='genre'
-              checked={searchMode === SearchMode.Genre}
-              onChange={handleChangeRadio}
-              variant='withBorder'
-            />
-          </div>
-          <SearchButton />
+      <input className='searchMovie__input' type='text' ref={inputRef} placeholder={`Enter ${props.searchMode === SearchMode.Title ? 'title' : 'genre'}`} />
+      <div className='searchMovie__buttons'>
+        <div className='searchMovie__filter'>
+          <p className='searchMovie__filter-description'>search by</p>
+          <RadioButton
+            mode='title'
+            checked={props.searchMode === SearchMode.Title}
+            onChange={handleChangeSearchMode}
+            variant='withBorder'
+          />
+          <RadioButton
+            mode='genre'
+            checked={props.searchMode === SearchMode.Genre}
+            onChange={handleChangeSearchMode}
+            variant='withBorder'
+          />
         </div>
-      </form>
+        <Button
+          onClick={() => props.clickSearchButton(inputRef.current.value)}
+          variant='withBackground'
+          title='Search'
+        />
+      </div>
     </section>
   )
 }

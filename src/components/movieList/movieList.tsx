@@ -1,16 +1,21 @@
 import './movieList.css';
-import { moviesData } from "../../data/moviesData";
-import { Movie, MovieProps } from "../movie/movie";
+import { Movie, MovieObject } from "../movie/movie";
 
-export default function MovieList() {
+interface MovieListProps {
+  doubleMovieClick: (movie: MovieObject) => void;
+  movies: MovieObject[];
+}
+
+export default function MovieList(props: MovieListProps) {
   return (
     <ul className='movieList'>
       {
-        moviesData.map((movie: MovieProps) => {
+        props.movies.map((movie) => {
           return (
             <Movie
-              {...movie}
               key={movie.id}
+              doubleMovieClick={props.doubleMovieClick}
+              movie={movie}
             />
           )
         })
