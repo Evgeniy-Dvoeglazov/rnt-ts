@@ -1,23 +1,27 @@
 import './searchMoviePage.css';
 import MovieList from '../../components/movieList/movieList';
-import { moviesData } from '../../data/moviesData';
 import RadioButton from '../../components/radioButton/radioButton';
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { MovieObject } from '../../components/movie/movie';
-import { SearchMode } from '../../app/app';
+import { SearchMode } from '../../types/searchMode';
+import { useSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
+import { RootState } from '../../store/store';
+import { getMovies } from '../../store/actionCreators.ts/movies';
+import type { } from 'redux-thunk/extend-redux';
 
 enum FilterMode {
   Title = 'title',
   ReleaseDate = 'release date'
 }
 
-interface SearchMoviePageProps {
-  doubleMovieClick: (movie: MovieObject) => void;
-  searchString: string;
-  searchMode: SearchMode;
-}
+export default function SearchMoviePage() {
+  const dispatch = useDispatch();
+  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-export default function SearchMoviePage({ searchMode, searchString, doubleMovieClick }: SearchMoviePageProps) {
+  const { searchMode } = useTypedSelector((state) => state.searchMode);
+  const { searchString } = useTypedSelector((state) => state.searchString);
+  const { moviesData, loading, error } = useTypedSelector((state) => state.movie);
+
   const [sortedMovies, setSortedMovies] = useState<MovieObject[]>([]);
   const [filterMode, setFilterMode] = useState<FilterMode>(FilterMode.Title);
 
@@ -34,11 +38,23 @@ export default function SearchMoviePage({ searchMode, searchString, doubleMovieC
   }, [searchString, sortedMovies, searchMode]);
 
   useEffect(() => {
+    dispatch(getMovies());
+  }, [dispatch]);
+
+  useEffect(() => {
     const copyMoviesData = [...moviesData] as MovieObject[];
     setSortedMovies(filterMode === FilterMode.Title
       ? copyMoviesData.sort((a, b) => a.title.localeCompare(b.title))
       : copyMoviesData.sort((a, b) => a.year - b.year));
-  }, [filterMode]);
+  }, [filterMode, moviesData]);
+
+  if (loading) {
+    return <h2 className='searchMoviePage__title'>Загрузка...</h2>
+  }
+
+  if (error) {
+    return <h2 className='searchMoviePage__title'>{error}</h2>
+  }
 
   return (
     <section className='searchMoviePage'>
@@ -63,7 +79,6 @@ export default function SearchMoviePage({ searchMode, searchString, doubleMovieC
       {movies.length !== 0
         ? <MovieList
           movies={movies}
-          doubleMovieClick={doubleMovieClick}
         />
         : <h2 className='searchMoviePage__title'>No films found</h2>}
     </section>

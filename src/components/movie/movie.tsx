@@ -1,4 +1,7 @@
 import './movie.css';
+import { useDispatch } from 'react-redux';
+import { SelectedMovieTypes } from '../../types/selectedMovie';
+import { useCallback } from 'react';
 
 type Genre = 'drama' | 'horror' | 'adventure' | 'fantasy' | 'thriller';
 
@@ -12,15 +15,21 @@ export type MovieObject = {
   description: string;
 }
 
-export interface MovieProps {
-  doubleMovieClick: (movie: MovieObject) => void;
+interface MovieProps {
   movie: MovieObject;
 }
 
-export function Movie({ movie, doubleMovieClick }: MovieProps) {
+export function Movie({ movie }: MovieProps) {
+  const dispatch = useDispatch();
+
+  const openMovieInfo = useCallback((movie: MovieObject) => {
+    window.scrollTo(0, 0);
+    dispatch({type: SelectedMovieTypes.SET_SELECTED_MOVIE, payload: movie });
+  }, [dispatch]);
+
   return (
     <li className='movie' onDoubleClick={() => {
-      doubleMovieClick(movie)
+      openMovieInfo(movie)
     }}>
       <img className='movie__image' src={movie.image} alt={movie.title} />
       <div className='movie__info'>
