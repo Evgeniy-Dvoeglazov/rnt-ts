@@ -48,8 +48,6 @@
     "webpack-merge": "5.10.0"
   },
   "dependencies": {
-    "@types/react-redux": "^7.1.31",
-    "@types/redux-thunk": "^2.1.0",
     "axios": "1.6.2",
     "classnames": "2.3.2",
     "core-js": "3.33.2",
