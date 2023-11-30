@@ -28,7 +28,7 @@ export function Movie({ movie }: MovieProps) {
   }, [dispatch]);
 
   return (
-    <li className='movie' onDoubleClick={() => {
+    <li className='movie' onClick={() => {
       openMovieInfo(movie)
     }}>
       <img className='movie__image' src={movie.image} alt={movie.title} />
