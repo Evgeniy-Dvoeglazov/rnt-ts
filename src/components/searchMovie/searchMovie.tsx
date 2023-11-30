@@ -1,11 +1,11 @@
 import './searchMovie.css';
 import RadioButton from '../radioButton/radioButton';
 import { useCallback, useRef } from 'react';
-import { SearchMode, SearchModeActionTypes } from '../../store/reducers/searchMode/types';
+import { SearchMode, SearchModeActionTypes } from '../../store/searchMode/searchModeReducer';
 import Button from '../button/button';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchStringActionTypes } from '../../store/reducers/searchString/types';
-import { searchModeSelector } from '../../store/selectors/selectors';
+import { SearchStringActionTypes } from '../../store/searchString/searchStringReducer';
+import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
 
 export default function SearchMovie() {
   const inputRef = useRef<HTMLInputElement>(null);

@@ -1,4 +1,14 @@
-import { SelectedMovieAction, SelectedMovieState, SelectedMovieActionTypes } from './types';
+import { SelectedMovieAction } from './selectedMovieActions';
+import { MovieObject } from "../../components/movie/movie";
+
+export enum SelectedMovieActionTypes {
+  SET_SELECTED_MOVIE = 'SET_SELECTED_MOVIE',
+  REMOVE_SELECTED_MOVIE = 'REMOVE_SELECTED_MOVIE'
+}
+
+interface SelectedMovieState {
+  selectedMovie: MovieObject | null;
+}
 
 const initialState: SelectedMovieState = {
   selectedMovie: null,

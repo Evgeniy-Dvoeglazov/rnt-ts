@@ -1,7 +1,7 @@
 import './movie.css';
 import { useDispatch } from 'react-redux';
-import { SelectedMovieActionTypes } from '../../store/reducers/selectedMovie/types';
 import { useCallback } from 'react';
+import { SelectedMovieActionTypes } from '../../store/selectedMovie/selectedMovieReducer';
 
 type Genre = 'drama' | 'horror' | 'adventure' | 'fantasy' | 'thriller';
 

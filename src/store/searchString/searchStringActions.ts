@@ -1,10 +1,4 @@
-export enum SearchStringActionTypes {
-  SET_SEARCH_STRING = 'SET_SEARCH_STRING'
-}
-
-export interface SearchStringState {
-  searchString: string;
-}
+import { SearchStringActionTypes } from "./searchStringReducer";
 
 interface SetSearchStringAction {
   type: SearchStringActionTypes.SET_SEARCH_STRING;

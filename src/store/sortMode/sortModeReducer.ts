@@ -1,4 +1,17 @@
-import { SortMode, SortModeAction, SortModeActionTypes, SortModeState } from './types';
+import { SortModeAction } from './sortModeActions';
+
+export enum SortMode {
+  Title = 'title',
+  ReleaseDate = 'year'
+}
+
+export interface SortModeState {
+  sortMode: SortMode;
+}
+
+export enum SortModeActionTypes {
+  TOGGLE_SORT_MODE = 'TOGGLE_SORT_MODE'
+}
 
 const initialState: SortModeState = {
   sortMode: SortMode.Title

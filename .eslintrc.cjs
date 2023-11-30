@@ -12,7 +12,7 @@ module.exports = {
     "no-unused-vars": "off",
     '@typescript-eslint/no-var-requires': 'off',
     'no-undef': 'warn',
-    "@typescript-eslint/no-explicit-any": "off"
+    "no-multiple-empty-lines": "error"
   },
   root: true,
 };

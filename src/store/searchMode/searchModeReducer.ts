@@ -1,4 +1,17 @@
-import { SearchMode, SearchModeAction, SearchModeActionTypes, SearchModeState } from './types';
+import { SearchModeAction } from './searchModeActions';
+
+export enum SearchModeActionTypes {
+  TOGGLE_SEARCH_MODE = 'TOGGLE_SEARCH_MODE'
+}
+
+export enum SearchMode {
+  Title = 'title',
+  Genre = 'genre'
+}
+
+interface SearchModeState {
+  searchMode: SearchMode;
+}
 
 const initialState: SearchModeState = {
   searchMode: SearchMode.Title

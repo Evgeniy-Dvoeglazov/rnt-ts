@@ -3,11 +3,16 @@ import MovieList from '../../components/movieList/movieList';
 import RadioButton from '../../components/radioButton/radioButton';
 import { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { sortMovies } from './actionCreators/sortMovies';
-import { searchMovies } from './actionCreators/searchMovies';
-import { searchModeSelector, searchStringSelector, movieSelector, sortModeSelector } from '../../store/selectors/selectors';
-import { SortModeActionTypes } from '../../store/reducers/sortMode/types';
-import { SortMode } from '../../store/reducers/sortMode/types';
+import { movieSelector } from '../../store/movie/movieSelector';
+import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
+import { searchStringSelector } from '../../store/searchString/searchStringSelector';
+import { SortMode, SortModeActionTypes } from '../../store/sortMode/sortModeReducer';
+import { sortModeSelector } from '../../store/sortMode/sortModeSelector';
+import { getMovies } from '../../store/movie/actionCreators/getMovies';
+
+export interface getMoviesParams {
+  _sort: string
+}
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch();
@@ -22,11 +27,21 @@ export default function SearchMoviePage() {
   }, [dispatch]);
 
   useEffect(() => {
+    const sortMoviesParams: getMoviesParams = {
+      _sort: `${sortMode}`
+    };
+
+    const searchMoviesParams: getMoviesParams = {
+      _sort: `${sortMode}`,
+      [`${searchMode}`]: `${searchString}`
+    }
+
     if (searchString && searchMode) {
-      dispatch<any>(searchMovies(sortMode, searchMode, searchString));
+      dispatch(getMovies(searchMoviesParams));
     } else {
-      dispatch<any>(sortMovies(sortMode))
-  }}, [dispatch, searchString, sortMode, searchMode]);
+      dispatch(getMovies(sortMoviesParams))
+    }
+  }, [dispatch, searchString, sortMode, searchMode]);
 
   if (loading) {
     return <h2 className='searchMoviePage__title'>Загрузка...</h2>

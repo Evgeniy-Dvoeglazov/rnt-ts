@@ -1,4 +1,17 @@
-import { MovieState, MovieAction, MovieActionTypes } from "./types";
+import { MovieAction } from "./movieActions";
+import { MovieObject } from '../../components/movie/movie';
+
+export enum MovieActionTypes {
+  GET_MOVIES = 'GET_MOVIES',
+  GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS',
+  GET_MOVIES_ERROR = 'GET_MOVIES_ERROR'
+}
+
+interface MovieState {
+  moviesData: MovieObject[];
+  loading: boolean;
+  error: string | null;
+}
 
 const initialState: MovieState = {
   moviesData: [],
@@ -8,7 +21,7 @@ const initialState: MovieState = {
 
 export const movieReducer = (state = initialState, action: MovieAction): MovieState => {
   switch (action.type) {
-    case MovieActionTypes.GET_MOVIES_START:
+    case MovieActionTypes.GET_MOVIES:
       return {
         ...state,
         loading: true, error: null

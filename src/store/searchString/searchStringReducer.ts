@@ -1,4 +1,12 @@
-import { SearchStringAction, SearchStringActionTypes, SearchStringState } from './types';
+import { SearchStringAction } from './searchStringActions';
+
+export enum SearchStringActionTypes {
+  SET_SEARCH_STRING = 'SET_SEARCH_STRING'
+}
+
+interface SearchStringState {
+  searchString: string;
+}
 
 const initialState: SearchStringState = {
   searchString: '',

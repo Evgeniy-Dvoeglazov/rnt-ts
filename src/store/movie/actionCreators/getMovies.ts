@@ -1,20 +1,19 @@
-import { MovieActionTypes } from '../../../store/reducers/movie/types';
+import { MovieActionTypes } from '../movieReducer';
 import axios from 'axios';
-import { SortMode } from '../../../store/reducers/sortMode/types';
 import { AppDispatch } from '../../../app/appStore';
+import { getMoviesParams } from '../../../pages/searchMoviePage/searchMoviePage';
 
-export const sortMovies = (sortMode: SortMode) => {
+export const getMovies = (params: getMoviesParams) => {
   return function (dispatch: AppDispatch) {
-    dispatch({ type: MovieActionTypes.GET_MOVIES_START })
-    axios.get(`http://localhost:3004/movies?_sort=${sortMode}`)
+    dispatch({ type: MovieActionTypes.GET_MOVIES })
+    axios.get(`http://localhost:3004/movies`, {params: params})
       .then((res) => {
         dispatch({
           type: MovieActionTypes.GET_MOVIES_SUCCESS,
           payload: res.data
         })
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         dispatch({
           type: MovieActionTypes.GET_MOVIES_ERROR,
           payload: 'Что-то пошло не так...'
