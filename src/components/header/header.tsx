@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectedMovieSelector } from '../../store/selectedMovie/selectedMovieSelector';
 import { SelectedMovieActionTypes } from '../../store/selectedMovie/selectedMovieReducer';
 
-
 export default function Header() {
   const dispatch = useDispatch();
   const selectedMovie = useSelector(selectedMovieSelector);
