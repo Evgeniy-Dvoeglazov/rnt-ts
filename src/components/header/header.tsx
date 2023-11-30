@@ -3,15 +3,13 @@ import './header.css';
 import SearchMovie from '../searchMovie/searchMovie';
 import MovieInfo from '../movieInfo/movieInfo';
 import Button from '../button/button';
-import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
-import { SelectedMovieTypes } from '../../types/selectedMovie';
-import { RootState } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { SelectedMovieActionTypes } from '../../store/reducers/selectedMovie/types';
+import { selectedMovieSelector } from '../../store/selectors/selectors';
 
 export default function Header() {
   const dispatch = useDispatch();
-  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
-
-  const { selectedMovie } = useTypedSelector((state) => state.selectedMovie);
+  const selectedMovie = useSelector(selectedMovieSelector);
 
   return (
     <header className='header'>
@@ -21,12 +19,14 @@ export default function Header() {
             <div className='header__navigation'>
               <Logo />
               <Button
-                onClick={() => dispatch({ type: SelectedMovieTypes.REMOVE_SELECTED_MOVIE })}
+                onClick={() => dispatch({ type: SelectedMovieActionTypes.REMOVE_SELECTED_MOVIE })}
                 variant='withoutBackground'
                 title='Back to search'
               />
             </div>
-            <MovieInfo />
+            <MovieInfo
+              selectedMovie={selectedMovie}
+            />
           </>
           : <>
             <Logo />

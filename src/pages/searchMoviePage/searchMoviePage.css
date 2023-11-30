@@ -1,4 +1,5 @@
 .searchMoviePage {
+  flex-grow: 1;
   margin: 0 150px 50px;
   color: #000;
 }

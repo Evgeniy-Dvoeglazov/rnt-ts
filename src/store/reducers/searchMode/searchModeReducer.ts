@@ -1,4 +1,4 @@
-import { SearchMode, SearchModeAction, SearchModeTypes, SearchModeState } from '../../types/searchMode';
+import { SearchMode, SearchModeAction, SearchModeActionTypes, SearchModeState } from './types';
 
 const initialState: SearchModeState = {
   searchMode: SearchMode.Title
@@ -6,7 +6,7 @@ const initialState: SearchModeState = {
 
 export const searchModeReducer = (state = initialState, action: SearchModeAction): SearchModeState => {
   switch (action.type) {
-    case SearchModeTypes.SET_SEARCH_MODE:
+    case SearchModeActionTypes.TOGGLE_SEARCH_MODE:
       return {
         searchMode: state.searchMode === SearchMode.Title
           ? SearchMode.Genre

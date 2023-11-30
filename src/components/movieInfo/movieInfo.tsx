@@ -1,12 +1,11 @@
 import './movieInfo.css';
-import { useSelector, TypedUseSelectorHook } from 'react-redux';
-import { RootState } from '../../store/store';
+import { MovieObject } from '../movie/movie';
 
-export default function MovieInfo() {
-  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+interface SelectedMovieProps {
+  selectedMovie: MovieObject
+}
 
-  const { selectedMovie } = useTypedSelector((state) => state.selectedMovie);
-
+export default function MovieInfo({ selectedMovie }: SelectedMovieProps) {
   return (
     <div className='movieInfo'>
       <img className='movieInfo__image' src={selectedMovie.image} alt='movie-image' />

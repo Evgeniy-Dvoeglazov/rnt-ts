@@ -1,52 +1,32 @@
 import './searchMoviePage.css';
 import MovieList from '../../components/movieList/movieList';
 import RadioButton from '../../components/radioButton/radioButton';
-import { useState, useCallback, useEffect, useMemo } from 'react';
-import { MovieObject } from '../../components/movie/movie';
-import { SearchMode } from '../../types/searchMode';
-import { useSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
-import { RootState } from '../../store/store';
-import { getMovies } from '../../store/actionCreators.ts/movies';
-import type { } from 'redux-thunk/extend-redux';
-
-enum FilterMode {
-  Title = 'title',
-  ReleaseDate = 'release date'
-}
+import { useCallback, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { sortMovies } from './actionCreators/sortMovies';
+import { searchMovies } from './actionCreators/searchMovies';
+import { searchModeSelector, searchStringSelector, movieSelector, sortModeSelector } from '../../store/selectors/selectors';
+import { SortModeActionTypes } from '../../store/reducers/sortMode/types';
+import { SortMode } from '../../store/reducers/sortMode/types';
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch();
-  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-  const { searchMode } = useTypedSelector((state) => state.searchMode);
-  const { searchString } = useTypedSelector((state) => state.searchString);
-  const { moviesData, loading, error } = useTypedSelector((state) => state.movie);
-
-  const [sortedMovies, setSortedMovies] = useState<MovieObject[]>([]);
-  const [filterMode, setFilterMode] = useState<FilterMode>(FilterMode.Title);
+  const searchMode = useSelector(searchModeSelector);
+  const searchString = useSelector(searchStringSelector);
+  const sortMode = useSelector(sortModeSelector);
+  const { moviesData, loading, error } = useSelector(movieSelector);
 
   const handleChangeRadio = useCallback(() => {
-    setFilterMode(filterMode => filterMode === FilterMode.Title
-      ? FilterMode.ReleaseDate
-      : FilterMode.Title);
-  }, []);
-
-  const movies = useMemo(() => {
-    return searchMode === SearchMode.Title
-      ? sortedMovies.filter((movie: MovieObject) => movie.title.toLowerCase().includes(searchString))
-      : sortedMovies.filter((movie: MovieObject) => movie.genre.toLowerCase().includes(searchString))
-  }, [searchString, sortedMovies, searchMode]);
-
-  useEffect(() => {
-    dispatch(getMovies());
+    dispatch({ type: SortModeActionTypes.TOGGLE_SORT_MODE })
   }, [dispatch]);
 
   useEffect(() => {
-    const copyMoviesData = [...moviesData] as MovieObject[];
-    setSortedMovies(filterMode === FilterMode.Title
-      ? copyMoviesData.sort((a, b) => a.title.localeCompare(b.title))
-      : copyMoviesData.sort((a, b) => a.year - b.year));
-  }, [filterMode, moviesData]);
+    if (searchString && searchMode) {
+      dispatch<any>(searchMovies(sortMode, searchMode, searchString));
+    } else {
+      dispatch<any>(sortMovies(sortMode))
+  }}, [dispatch, searchString, sortMode, searchMode]);
 
   if (loading) {
     return <h2 className='searchMoviePage__title'>Загрузка...</h2>
@@ -59,26 +39,26 @@ export default function SearchMoviePage() {
   return (
     <section className='searchMoviePage'>
       <div className='searchMoviePage__header'>
-        <p className='searchMoviePage__moviesCount'>{movies.length} movies found</p>
+        <p className='searchMoviePage__moviesCount'>{moviesData.length} movies found</p>
         <div className='searchMoviePage__filter'>
           <p className='searchMoviePage__filterDescription'>Sort by</p>
           <RadioButton
             mode='release date'
-            checked={filterMode === FilterMode.ReleaseDate}
+            checked={sortMode === SortMode.ReleaseDate}
             onChange={handleChangeRadio}
             variant='withoutBorder'
           />
           <RadioButton
             mode='title'
-            checked={filterMode === FilterMode.Title}
+            checked={sortMode === SortMode.Title}
             onChange={handleChangeRadio}
             variant='withoutBorder'
           />
         </div>
       </div>
-      {movies.length !== 0
+      {moviesData.length !== 0
         ? <MovieList
-          movies={movies}
+          movies={moviesData}
         />
         : <h2 className='searchMoviePage__title'>No films found</h2>}
     </section>

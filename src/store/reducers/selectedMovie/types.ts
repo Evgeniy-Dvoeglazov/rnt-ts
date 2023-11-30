@@ -1,21 +1,21 @@
-import { MovieObject } from "../components/movie/movie";
+import { MovieObject } from "../../../components/movie/movie";
 
 export interface SelectedMovieState {
   selectedMovie: MovieObject | null;
 }
 
-export enum SelectedMovieTypes {
+export enum SelectedMovieActionTypes {
   SET_SELECTED_MOVIE = 'SET_SELECTED_MOVIE',
   REMOVE_SELECTED_MOVIE = 'REMOVE_SELECTED_MOVIE'
 }
 
 interface SetSelectedMovieAction {
-  type: SelectedMovieTypes.SET_SELECTED_MOVIE;
+  type: SelectedMovieActionTypes.SET_SELECTED_MOVIE;
   payload: MovieObject;
 }
 
 interface RemoveSelectedMovieAction {
-  type: SelectedMovieTypes.REMOVE_SELECTED_MOVIE;
+  type: SelectedMovieActionTypes.REMOVE_SELECTED_MOVIE;
 }
 
 export type SelectedMovieAction = SetSelectedMovieAction | RemoveSelectedMovieAction;

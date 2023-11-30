@@ -1,4 +1,4 @@
-import { MovieState, MovieAction, MoviesActionTypes } from "../../types/movie";
+import { MovieState, MovieAction, MovieActionTypes } from "./types";
 
 const initialState: MovieState = {
   moviesData: [],
@@ -8,17 +8,19 @@ const initialState: MovieState = {
 
 export const movieReducer = (state = initialState, action: MovieAction): MovieState => {
   switch (action.type) {
-    case MoviesActionTypes.GET_MOVIES_LOADING:
+    case MovieActionTypes.GET_MOVIES_START:
       return {
-        moviesData: [], loading: true, error: null
+        ...state,
+        loading: true, error: null
       };
-    case MoviesActionTypes.GET_MOVIES_SUCCESS:
+    case MovieActionTypes.GET_MOVIES_SUCCESS:
       return {
         moviesData: action.payload, loading: false, error: null
       };
-    case MoviesActionTypes. GET_MOVIES_ERROR:
+    case MovieActionTypes.GET_MOVIES_ERROR:
       return {
-        moviesData: [], loading: false, error: action.payload
+        ...state,
+        loading: false, error: action.payload
       };
     default:
       return state;

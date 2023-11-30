@@ -1,21 +1,20 @@
 import './searchMovie.css';
 import RadioButton from '../radioButton/radioButton';
 import { useCallback, useRef } from 'react';
-import { SearchMode, SearchModeTypes } from '../../types/searchMode';
+import { SearchMode, SearchModeActionTypes } from '../../store/reducers/searchMode/types';
 import Button from '../button/button';
-import { useSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
-import { RootState } from '../../store/store';
-import { SearchStringTypes } from '../../types/searchString';
+import { useSelector, useDispatch } from 'react-redux';
+import { SearchStringActionTypes } from '../../store/reducers/searchString/types';
+import { searchModeSelector } from '../../store/selectors/selectors';
 
 export default function SearchMovie() {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
-  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-  const { searchMode } = useTypedSelector((state) => state.searchMode)
+  const searchMode = useSelector(searchModeSelector);
 
   const handleChangeSearchMode = useCallback(() => {
-    dispatch({ type: SearchModeTypes.SET_SEARCH_MODE });
+    dispatch({ type: SearchModeActionTypes.TOGGLE_SEARCH_MODE });
   }, [dispatch]);
 
   return (
@@ -39,7 +38,8 @@ export default function SearchMovie() {
           />
         </div>
         <Button
-          onClick={() => dispatch({ type: SearchStringTypes.SET_SEARCH_STRING, payload: inputRef.current.value })}
+          onClick={() => inputRef.current &&
+            dispatch({ type: SearchStringActionTypes.SET_SEARCH_STRING, payload: inputRef.current.value.toLowerCase() })}
           variant='withBackground'
           title='Search'
         />

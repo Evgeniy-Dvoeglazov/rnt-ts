@@ -1,4 +1,4 @@
-import { SelectedMovieAction, SelectedMovieState, SelectedMovieTypes } from '../../types/selectedMovie';
+import { SelectedMovieAction, SelectedMovieState, SelectedMovieActionTypes } from './types';
 
 const initialState: SelectedMovieState = {
   selectedMovie: null,
@@ -6,11 +6,11 @@ const initialState: SelectedMovieState = {
 
 export const selectedMovieReducer = (state = initialState, action: SelectedMovieAction): SelectedMovieState => {
   switch (action.type) {
-    case SelectedMovieTypes.SET_SELECTED_MOVIE:
+    case SelectedMovieActionTypes.SET_SELECTED_MOVIE:
       return {
         selectedMovie: action.payload
       };
-    case SelectedMovieTypes.REMOVE_SELECTED_MOVIE:
+    case SelectedMovieActionTypes.REMOVE_SELECTED_MOVIE:
       return {
         selectedMovie: null
       };

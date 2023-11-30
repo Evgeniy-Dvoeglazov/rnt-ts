@@ -1,4 +1,4 @@
-import { SearchStringAction, SearchStringTypes, SearchStringState } from '../../types/searchString';
+import { SearchStringAction, SearchStringActionTypes, SearchStringState } from './types';
 
 const initialState: SearchStringState = {
   searchString: '',
@@ -6,7 +6,7 @@ const initialState: SearchStringState = {
 
 export const searchStringReducer = (state = initialState, action: SearchStringAction): SearchStringState => {
   switch (action.type) {
-    case SearchStringTypes.SET_SEARCH_STRING:
+    case SearchStringActionTypes.SET_SEARCH_STRING:
       return {
         searchString: action.payload
       };

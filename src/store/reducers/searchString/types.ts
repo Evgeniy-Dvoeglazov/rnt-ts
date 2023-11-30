@@ -1,4 +1,4 @@
-export enum SearchStringTypes {
+export enum SearchStringActionTypes {
   SET_SEARCH_STRING = 'SET_SEARCH_STRING'
 }
 
@@ -7,7 +7,7 @@ export interface SearchStringState {
 }
 
 interface SetSearchStringAction {
-  type: SearchStringTypes.SET_SEARCH_STRING;
+  type: SearchStringActionTypes.SET_SEARCH_STRING;
   payload: string;
 }
 
