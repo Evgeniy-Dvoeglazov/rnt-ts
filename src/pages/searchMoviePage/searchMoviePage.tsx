@@ -8,11 +8,7 @@ import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
 import { searchStringSelector } from '../../store/searchString/searchStringSelector';
 import { SortMode, SortModeActionTypes } from '../../store/sortMode/sortModeReducer';
 import { sortModeSelector } from '../../store/sortMode/sortModeSelector';
-import { getMovies } from '../../store/movie/actionCreators/getMovies';
-
-export interface getMoviesParams {
-  _sort: string
-}
+import { getMovies, getMoviesParams } from '../../store/movie/actionCreators/getMovies';
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch();
