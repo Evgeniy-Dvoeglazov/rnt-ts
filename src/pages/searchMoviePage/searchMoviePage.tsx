@@ -8,7 +8,7 @@ import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
 import { searchStringSelector } from '../../store/searchString/searchStringSelector';
 import { SortMode, SortModeActionTypes } from '../../store/sortMode/sortModeReducer';
 import { sortModeSelector } from '../../store/sortMode/sortModeSelector';
-import { getMovies, getMoviesParams } from '../../store/movie/actionCreators/getMovies';
+import { getMovies, GetMoviesParams } from '../../store/movie/actionCreators/getMovies';
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch();
@@ -23,20 +23,16 @@ export default function SearchMoviePage() {
   }, [dispatch]);
 
   useEffect(() => {
-    const sortMoviesParams: getMoviesParams = {
-      _sort: `${sortMode}`
+    const sortMoviesParams: GetMoviesParams = {
+      _sort: `${sortMode}`,
     };
 
-    const searchMoviesParams: getMoviesParams = {
+    const searchMoviesParams: GetMoviesParams = {
       _sort: `${sortMode}`,
-      [`${searchMode}`]: `${searchString}`
-    }
+      [`${searchMode}`]: `${searchString}`,
+    };
 
-    if (searchString) {
-      dispatch(getMovies(searchMoviesParams));
-    } else {
-      dispatch(getMovies(sortMoviesParams))
-    }
+    dispatch(getMovies(searchString ? searchMoviesParams : sortMoviesParams));
   }, [dispatch, searchString, sortMode, searchMode]);
 
   if (loading) {
