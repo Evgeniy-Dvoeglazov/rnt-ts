@@ -32,7 +32,7 @@ export default function SearchMoviePage() {
       [`${searchMode}`]: `${searchString}`
     }
 
-    if (searchString && searchMode) {
+    if (searchString) {
       dispatch(getMovies(searchMoviesParams));
     } else {
       dispatch(getMovies(sortMoviesParams))
