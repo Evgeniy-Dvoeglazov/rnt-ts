@@ -1,16 +1,16 @@
-declare module '*.jpg' {
+declare module "*.jpg" {
   const path: string;
   export default path;
 }
-declare module '*.jpeg' {
+declare module "*.jpeg" {
   const path: string;
   export default path;
 }
-declare module '*.svg' {
+declare module "*.svg" {
   const path: string;
   export default path;
 }
-declare module '*.png' {
+declare module "*.png" {
   const path: string;
   export default path;
 }

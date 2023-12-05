@@ -12,30 +12,30 @@
 
 .radioButton__span_withBorder {
   cursor: pointer;
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
   background-color: #131313;
   padding: 7px 30px;
   border: 1px solid #fff;
   border-radius: 5px;
-  opacity: .7;
+  opacity: 0.7;
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .radioButton__span_withoutBorder {
   cursor: pointer;
-  transition: opacity .2s linear;
-  opacity: .4;
+  transition: opacity 0.2s linear;
+  opacity: 0.4;
   font-size: 16px;
 }
 
-.radioButton__input:checked+.radioButton__span_withBorder {
+.radioButton__input:checked + .radioButton__span_withBorder {
   background-color: #16b939;
   opacity: 1;
   border: 1px solid #16b939;
 }
 
-.radioButton__input:checked+.radioButton__span_withoutBorder {
+.radioButton__input:checked + .radioButton__span_withoutBorder {
   opacity: 1;
   color: #088022;
 }

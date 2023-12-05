@@ -1,7 +1,7 @@
 .header {
   position: relative;
   padding: 40px 150px;
-  background-image: url('../../pictures/header-bg.jpg');
+  background-image: url("../../pictures/header-bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,8 +14,8 @@
   top: 0;
   right: 0;
   bottom: 0;
-  opacity: .8;
-  content: '';
+  opacity: 0.8;
+  content: "";
 }
 
 .header__navigation {
