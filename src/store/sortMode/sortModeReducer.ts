@@ -1,4 +1,5 @@
-import { SortModeAction } from './sortModeActions';
+import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../../app/appStore';
 
 export enum SortMode {
   Title = 'title',
@@ -9,23 +10,23 @@ export interface SortModeState {
   sortMode: SortMode;
 }
 
-export enum SortModeActionTypes {
-  TOGGLE_SORT_MODE = 'TOGGLE_SORT_MODE'
-}
-
 const initialState: SortModeState = {
   sortMode: SortMode.Title
 };
 
-export const sortModeReducer = (state = initialState, action: SortModeAction): SortModeState => {
-  switch (action.type) {
-    case SortModeActionTypes.TOGGLE_SORT_MODE:
-      return {
-        sortMode: state.sortMode === SortMode.Title
-          ? SortMode.ReleaseDate
-          : SortMode.Title
-      };
-    default:
-      return state;
+export const sortModeSlice = createSlice({
+  name: 'sortMode',
+  initialState,
+  reducers: {
+    toggleSortMode: (state) => {
+      state.sortMode === SortMode.Title
+        ? state.sortMode = SortMode.ReleaseDate
+        : state.sortMode = SortMode.Title
+    }
   }
-};
+});
+
+export const sortModeSelector = (state: RootState) => state.sortMode.sortMode;
+
+export const { toggleSortMode } = sortModeSlice.actions;
+export default sortModeSlice.reducer;

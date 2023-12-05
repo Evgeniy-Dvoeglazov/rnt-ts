@@ -3,15 +3,15 @@ import MovieList from '../../components/movieList/movieList';
 import RadioButton from '../../components/radioButton/radioButton';
 import { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { movieSelector } from '../../store/movie/movieSelector';
-import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
-import { searchStringSelector } from '../../store/searchString/searchStringSelector';
-import { SortMode, SortModeActionTypes } from '../../store/sortMode/sortModeReducer';
-import { sortModeSelector } from '../../store/sortMode/sortModeSelector';
-import { getMovies, GetMoviesParams } from '../../store/movie/actionCreators/getMovies';
+import { SortMode, sortModeSelector, toggleSortMode } from '../../store/sortMode/sortModeReducer';
+import { GetMoviesParams, getMovies } from '../../store/movie/movieReducer';
+import { searchStringSelector } from '../../store/searchString/searchStringReducer';
+import { searchModeSelector } from '../../store/searchMode/searchModeReducer';
+import { movieSelector } from '../../store/movie/movieReducer';
+import { AppDispatch } from '../../app/appStore';
 
 export default function SearchMoviePage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const searchMode = useSelector(searchModeSelector);
   const searchString = useSelector(searchStringSelector);
@@ -19,7 +19,7 @@ export default function SearchMoviePage() {
   const { moviesData, loading, error } = useSelector(movieSelector);
 
   const handleChangeRadio = useCallback(() => {
-    dispatch({ type: SortModeActionTypes.TOGGLE_SORT_MODE })
+    dispatch(toggleSortMode())
   }, [dispatch]);
 
   useEffect(() => {

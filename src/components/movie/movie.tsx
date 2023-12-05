@@ -1,7 +1,7 @@
 import './movie.css';
 import { useDispatch } from 'react-redux';
 import { useCallback } from 'react';
-import { SelectedMovieActionTypes } from '../../store/selectedMovie/selectedMovieReducer';
+import { setSelectedMovie } from '../../store/selectedMovie/selectedMovieReducer';
 
 type Genre = 'drama' | 'horror' | 'adventure' | 'fantasy' | 'thriller';
 
@@ -24,7 +24,7 @@ export function Movie({ movie }: MovieProps) {
 
   const openMovieInfo = useCallback((movie: MovieObject) => {
     window.scrollTo(0, 0);
-    dispatch({ type: SelectedMovieActionTypes.SET_SELECTED_MOVIE, payload: movie });
+    dispatch(setSelectedMovie(movie));
   }, [dispatch]);
 
   return (

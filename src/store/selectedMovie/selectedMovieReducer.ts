@@ -1,10 +1,6 @@
-import { SelectedMovieAction } from './selectedMovieActions';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { MovieObject } from "../../components/movie/movie";
-
-export enum SelectedMovieActionTypes {
-  SET_SELECTED_MOVIE = 'SET_SELECTED_MOVIE',
-  REMOVE_SELECTED_MOVIE = 'REMOVE_SELECTED_MOVIE'
-}
+import { RootState } from '../../app/appStore';
 
 interface SelectedMovieState {
   selectedMovie: MovieObject | null;
@@ -14,17 +10,21 @@ const initialState: SelectedMovieState = {
   selectedMovie: null,
 };
 
-export const selectedMovieReducer = (state = initialState, action: SelectedMovieAction): SelectedMovieState => {
-  switch (action.type) {
-    case SelectedMovieActionTypes.SET_SELECTED_MOVIE:
-      return {
-        selectedMovie: action.payload
-      };
-    case SelectedMovieActionTypes.REMOVE_SELECTED_MOVIE:
-      return {
-        selectedMovie: null
-      };
-    default:
-      return state;
+export const selectedMovieSlice = createSlice({
+  name: 'selectedMovie',
+  initialState,
+  reducers: {
+    setSelectedMovie: (state, action: PayloadAction<MovieObject>) => {
+      state.selectedMovie = action.payload
+    },
+    removeSelectedMovie: (state) => {
+      state.selectedMovie = null
+    }
   }
-};
+});
+
+export const selectedMovieSelector = (state: RootState) => state.selectedMovie.selectedMovie;
+
+export const { setSelectedMovie, removeSelectedMovie } = selectedMovieSlice.actions;
+export default selectedMovieSlice.reducer;
+

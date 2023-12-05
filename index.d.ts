@@ -1,5 +1,3 @@
-/// <reference types="redux-thunk/extend-redux" />
-
 declare module '*.jpg' {
   const path: string;
   export default path;

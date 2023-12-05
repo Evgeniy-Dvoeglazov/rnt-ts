@@ -1,11 +1,11 @@
 import './searchMovie.css';
 import RadioButton from '../radioButton/radioButton';
 import { useCallback, useRef } from 'react';
-import { SearchMode, SearchModeActionTypes } from '../../store/searchMode/searchModeReducer';
+import { SearchMode, searchModeSelector, toggleSearchMode } from '../../store/searchMode/searchModeReducer';
 import Button from '../button/button';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchStringActionTypes } from '../../store/searchString/searchStringReducer';
-import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
+
+import { setSearchString } from '../../store/searchString/searchStringReducer';
 
 export default function SearchMovie() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,7 +14,7 @@ export default function SearchMovie() {
   const searchMode = useSelector(searchModeSelector);
 
   const handleChangeSearchMode = useCallback(() => {
-    dispatch({ type: SearchModeActionTypes.TOGGLE_SEARCH_MODE });
+    dispatch(toggleSearchMode());
   }, [dispatch]);
 
   return (
@@ -39,7 +39,7 @@ export default function SearchMovie() {
         </div>
         <Button
           onClick={() => inputRef.current &&
-            dispatch({ type: SearchStringActionTypes.SET_SEARCH_STRING, payload: inputRef.current.value.toLowerCase() })}
+            dispatch(setSearchString(inputRef.current.value.toLowerCase()))}
           variant='withBackground'
           title='Search'
         />
