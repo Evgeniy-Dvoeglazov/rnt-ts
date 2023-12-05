@@ -1,11 +1,11 @@
 import './movieInfo.css';
 import { MovieObject } from '../movie/movie';
 
-interface MovieInfoProps {
-  selectedMovie: MovieObject;
+interface SelectedMovieProps {
+  selectedMovie: MovieObject
 }
 
-export default function MovieInfo({ selectedMovie }: MovieInfoProps) {
+export default function MovieInfo({ selectedMovie }: SelectedMovieProps) {
   return (
     <div className='movieInfo'>
       <img className='movieInfo__image' src={selectedMovie.image} alt='movie-image' />

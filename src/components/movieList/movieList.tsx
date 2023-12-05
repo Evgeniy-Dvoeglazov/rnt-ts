@@ -2,7 +2,6 @@ import './movieList.css';
 import { Movie, MovieObject } from "../movie/movie";
 
 interface MovieListProps {
-  doubleMovieClick: (movie: MovieObject) => void;
   movies: MovieObject[];
 }
 
@@ -14,7 +13,6 @@ export default function MovieList(props: MovieListProps) {
           return (
             <Movie
               key={movie.id}
-              doubleMovieClick={props.doubleMovieClick}
               movie={movie}
             />
           )

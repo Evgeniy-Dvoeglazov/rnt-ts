@@ -27,6 +27,8 @@
 }
 
 .searchMoviePage__title {
+  flex-grow: 1;
+  color: #000;
   text-align: center;
   margin: 0;
   font-weight: 400;

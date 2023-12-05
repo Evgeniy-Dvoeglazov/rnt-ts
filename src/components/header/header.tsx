@@ -2,43 +2,35 @@ import Logo from '../logo/logo';
 import './header.css';
 import SearchMovie from '../searchMovie/searchMovie';
 import MovieInfo from '../movieInfo/movieInfo';
-import { SearchMode } from '../../app/app';
-import { MovieObject } from '../movie/movie';
 import Button from '../button/button';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectedMovieSelector } from '../../store/selectedMovie/selectedMovieSelector';
+import { SelectedMovieActionTypes } from '../../store/selectedMovie/selectedMovieReducer';
 
-interface HeaderProps {
-  searchMode: SearchMode;
-  selectedMovie: MovieObject | null;
-  clickSearchButton: (value: string) => void;
-  changeSearchMode: () => void;
-  backToSearch: () => void;
-}
+export default function Header() {
+  const dispatch = useDispatch();
+  const selectedMovie = useSelector(selectedMovieSelector);
 
-export default function Header(props: HeaderProps) {
   return (
     <header className='header'>
       {
-        props.selectedMovie
+        selectedMovie
           ? <>
             <div className='header__navigation'>
               <Logo />
               <Button
-                onClick={props.backToSearch}
+                onClick={() => dispatch({ type: SelectedMovieActionTypes.REMOVE_SELECTED_MOVIE })}
                 variant='withoutBackground'
                 title='Back to search'
               />
             </div>
             <MovieInfo
-              selectedMovie={props.selectedMovie}
+              selectedMovie={selectedMovie}
             />
           </>
           : <>
             <Logo />
-            <SearchMovie
-              clickSearchButton={props.clickSearchButton}
-              changeSearchMode={props.changeSearchMode}
-              searchMode={props.searchMode}
-            />
+            <SearchMovie />
           </>
       }
     </header>

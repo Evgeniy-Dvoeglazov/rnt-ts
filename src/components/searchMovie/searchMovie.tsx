@@ -1,44 +1,45 @@
 import './searchMovie.css';
 import RadioButton from '../radioButton/radioButton';
 import { useCallback, useRef } from 'react';
-import { SearchMode } from '../../app/app';
+import { SearchMode, SearchModeActionTypes } from '../../store/searchMode/searchModeReducer';
 import Button from '../button/button';
+import { useSelector, useDispatch } from 'react-redux';
+import { SearchStringActionTypes } from '../../store/searchString/searchStringReducer';
+import { searchModeSelector } from '../../store/searchMode/searchModeSelector';
 
-interface SearchMovieProps {
-  searchMode: SearchMode;
-  clickSearchButton: (value: string) => void;
-  changeSearchMode: () => void;
-}
+export default function SearchMovie() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
-export default function SearchMovie(props: SearchMovieProps) {
-  const inputRef = useRef(null);
+  const searchMode = useSelector(searchModeSelector);
 
   const handleChangeSearchMode = useCallback(() => {
-      props.changeSearchMode();
-  }, [props]);
+    dispatch({ type: SearchModeActionTypes.TOGGLE_SEARCH_MODE });
+  }, [dispatch]);
 
   return (
     <section className='searchMovie'>
       <h1 className='searchMovie__title'>Find your movie</h1>
-      <input className='searchMovie__input' type='text' ref={inputRef} placeholder={`Enter ${props.searchMode === SearchMode.Title ? 'title' : 'genre'}`} />
+      <input className='searchMovie__input' type='text' ref={inputRef} placeholder={`Enter ${searchMode === SearchMode.Title ? 'title' : 'genre'}`} />
       <div className='searchMovie__buttons'>
         <div className='searchMovie__filter'>
           <p className='searchMovie__filter-description'>search by</p>
           <RadioButton
             mode='title'
-            checked={props.searchMode === SearchMode.Title}
+            checked={searchMode === SearchMode.Title}
             onChange={handleChangeSearchMode}
             variant='withBorder'
           />
           <RadioButton
             mode='genre'
-            checked={props.searchMode === SearchMode.Genre}
+            checked={searchMode === SearchMode.Genre}
             onChange={handleChangeSearchMode}
             variant='withBorder'
           />
         </div>
         <Button
-          onClick={() => props.clickSearchButton(inputRef.current.value)}
+          onClick={() => inputRef.current &&
+            dispatch({ type: SearchStringActionTypes.SET_SEARCH_STRING, payload: inputRef.current.value.toLowerCase() })}
           variant='withBackground'
           title='Search'
         />

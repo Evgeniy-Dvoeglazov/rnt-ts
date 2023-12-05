@@ -9,8 +9,10 @@ module.exports = {
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    "no-unused-vars": "off",
     '@typescript-eslint/no-var-requires': 'off',
     'no-undef': 'warn',
+    "no-multiple-empty-lines": "error"
   },
   root: true,
 };
