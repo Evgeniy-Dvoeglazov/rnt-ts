@@ -58,6 +58,7 @@ export const movieSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getMovies.pending, (state) => {
       state.loading = true;
+      state.error = undefined;
     });
     builder.addCase(getMovies.fulfilled, (state, action) => {
       state.loading = false;
