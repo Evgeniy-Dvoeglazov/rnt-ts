@@ -4,7 +4,7 @@
   padding: 10px 70px;
   cursor: pointer;
   text-transform: uppercase;
-  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-weight: 500;
   font-size: 16px;
 }
@@ -13,7 +13,7 @@
   background-color: #16b939;
   border: none;
   cursor: pointer;
-  transition: box-shadow .2s linear;
+  transition: box-shadow 0.2s linear;
 }
 
 .button_withBackground:hover {
@@ -25,7 +25,7 @@
   z-index: 2;
   background: none;
   border: 2px solid #fff;
-  transition: background .3s linear;
+  transition: background 0.3s linear;
 }
 
 .button_withoutBackground:hover {
