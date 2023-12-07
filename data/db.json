@@ -1,4 +1,13 @@
 {
+  "users": [
+    {
+      "email": "ppp@ppp.ru",
+      "password": "$2a$10$.em5nUZpmwvgAyfazXtmcOqSAI5AYr9s6hMMsKMjJgspvGPIgesGa",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 1
+    }
+  ],
   "movies": [
     {
       "id": 1,
