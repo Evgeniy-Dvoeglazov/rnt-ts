@@ -26,6 +26,7 @@ export const selectedMovieSlice = createSlice({
 export const selectedMovieSelector = (state: RootState) =>
   state.selectedMovie.value;
 
-export const { setSelectedMovie, removeSelectedMovie } =
-  selectedMovieSlice.actions;
-export const selectedMovieReducer = selectedMovieSlice.reducer;
+export const {
+  actions: { setSelectedMovie, removeSelectedMovie },
+  reducer: selectedMovieReducer,
+} = selectedMovieSlice;

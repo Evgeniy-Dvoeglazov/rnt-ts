@@ -1,7 +1,7 @@
 import { MovieObject } from "../../components/movie/movie";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/appStore";
-import { readMovies } from "./readMovies";
+import { GetMoviesParams, readMovies } from "./readMovies";
 
 export enum SearchMode {
   Title = "title",
@@ -12,12 +12,6 @@ export enum SortMode {
   Title = "title",
   ReleaseDate = "year",
 }
-
-export type GetMoviesParams = {
-  _sort: string;
-} & {
-  [key in SearchMode]?: string;
-};
 
 export const getMovies = createAsyncThunk(
   "movies/getMovies",
@@ -64,12 +58,10 @@ export const movieSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getMovies.pending, (state) => {
       state.loading = true;
-      state.error = undefined;
     });
     builder.addCase(getMovies.fulfilled, (state, action) => {
       state.loading = false;
       state.moviesData = action.payload;
-      state.error = undefined;
     });
     builder.addCase(getMovies.rejected, (state, action) => {
       state.loading = false;
@@ -79,6 +71,8 @@ export const movieSlice = createSlice({
 });
 
 export const movieSelector = (state: RootState) => state.movie;
-export const { toggleSearchMode, toggleSortMode, setSearchString } =
-  movieSlice.actions;
-export const movieReducer = movieSlice.reducer;
+
+export const {
+  actions: { toggleSearchMode, toggleSortMode, setSearchString },
+  reducer: movieReducer,
+} = movieSlice;

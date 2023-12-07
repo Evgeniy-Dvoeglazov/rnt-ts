@@ -4,13 +4,13 @@ import RadioButton from "../../components/radioButton/radioButton";
 import { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  GetMoviesParams,
   SortMode,
   getMovies,
   toggleSortMode,
 } from "../../store/movie/movieStore";
 import { movieSelector } from "../../store/movie/movieStore";
 import { AppDispatch } from "../../app/appStore";
+import { GetMoviesParams } from "../../store/movie/readMovies";
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch<AppDispatch>();
