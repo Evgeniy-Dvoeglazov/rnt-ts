@@ -8,6 +8,7 @@ import {
   removeSelectedMovie,
   selectedMovieSelector,
 } from "../../store/selectedMovie/selectedMovieStore";
+import { logout } from "../../store/auth/authStore";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -20,16 +21,30 @@ export default function Header() {
           <div className="header__navigation">
             <Logo />
             <Button
-              onClick={() => dispatch(removeSelectedMovie())}
+              onClick={() => {
+                dispatch(removeSelectedMovie());
+              }}
               variant="withoutBackground"
               title="Back to search"
+              type="button"
             />
           </div>
           <MovieInfo selectedMovie={selectedMovie} />
         </>
       ) : (
         <>
-          <Logo />
+          <div className="header__navigation">
+            <Logo />
+            <Button
+              onClick={() => {
+                dispatch(logout());
+                localStorage.removeItem("jwt");
+              }}
+              variant="textLink"
+              title="Log Out"
+              type="button"
+            />
+          </div>
           <SearchMovie />
         </>
       )}

@@ -1,0 +1,17 @@
+.formField__label {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 37px;
+  align-items: center;
+}
+
+.formField__input {
+  color: #fff;
+  border: 1px solid #fff;
+  width: 300px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: rgb(44, 44, 44);
+}

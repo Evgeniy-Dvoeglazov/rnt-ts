@@ -1,12 +1,22 @@
-import axios from "axios";
-import { Field, Form, Formik } from "formik";
+import "./registrationPage.css";
+import { Form, Formik } from "formik";
+import { togglePage } from "../../store/page/pageStore";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "../../components/button/button";
+import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
+import {
+  serverErrorSelector,
+  setServerError,
+} from "../../store/serverError/serverErrorStore";
+import {
+  isSuccessRegister,
+  successRegisterSelector,
+} from "../../store/successRegister/successRegisterStore";
+import FormField from "../../components/formField/formField";
+import { register, RegisterValues } from "./register";
 
-interface ValuesProps {
-  [key: string]: string;
-}
-
-const validate = (values: ValuesProps) => {
-  const errors: ValuesProps = {};
+const registerFormValidate = (values: RegisterValues) => {
+  const errors: RegisterValues = {};
 
   if (!values.username) {
     errors.username = "Required";
@@ -16,7 +26,7 @@ const validate = (values: ValuesProps) => {
 
   if (!values.email) {
     errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (!/.+@.+\..+/i.test(values.email)) {
     errors.email = "Invalid email address";
   }
 
@@ -41,9 +51,14 @@ const validate = (values: ValuesProps) => {
 };
 
 export default function RegistrationPage() {
+  const dispatch = useDispatch();
+  const loading = useSelector(loadingSelector);
+  const serverError = useSelector(serverErrorSelector);
+  const successRegister = useSelector(successRegisterSelector);
+
   return (
-    <section>
-      <h2>Sign up</h2>
+    <section className="registrationPage">
+      <h2 className="registrationPage__title">Sign up</h2>
       <Formik
         initialValues={{
           username: "",
@@ -51,45 +66,83 @@ export default function RegistrationPage() {
           email: "",
           confirmPassword: "",
         }}
-        onSubmit={async (values: ValuesProps) => {
-          await axios
-            .post(`http://localhost:3004/users`, values)
-            .then((res) => res.data)
-            .catch((error) => console.log(error.response.data));
+        onSubmit={async (values: RegisterValues) => {
+          dispatch(setLoading(true));
+          dispatch(setServerError(""));
+          dispatch(isSuccessRegister(false));
+          await register(values)
+            .then((res) => {
+              dispatch(isSuccessRegister(true));
+              res.data;
+            })
+            .catch((error) => {
+              dispatch(
+                setServerError(
+                  error.response.data.length !== 0
+                    ? error.response.data
+                    : "Something went wrong",
+                ),
+              );
+            })
+            .finally(() => dispatch(setLoading(false)));
         }}
-        validate={validate}
+        validate={registerFormValidate}
       >
         {({ errors, touched }) => {
           const error = (name: string) =>
-            touched[name] && errors[name] && <div>{errors[name]}</div>;
+            touched[name] &&
+            errors[name] && (
+              <p className="registrationPage__validationError">
+                {errors[name]}
+              </p>
+            );
 
           return (
-            <Form>
-              <label>
-                Username
-                <Field type="text" name="username" />
-                {error("username")}
-              </label>
-              <label>
-                Email
-                <Field type="email" name="email" />
-                {error("email")}
-              </label>
-              <label>
-                Password
-                <Field type="password" name="password" />
-                {error("password")}
-              </label>
-              <label>
-                Confirm Password
-                <Field type="password" name="confirmPassword" />
-                {error("confirmPassword")}
-              </label>
-              <button type="submit">Sign up</button>
+            <Form className="registrationPage__form">
+              <FormField
+                name="username"
+                type="text"
+                error={error("username")}
+              />
+              <FormField name="email" type="email" error={error("email")} />
+              <FormField
+                name="password"
+                type="password"
+                error={error("password")}
+              />
+              <FormField
+                name="confirmPassword"
+                type="password"
+                error={error("confirmPassword")}
+              />
+              {successRegister && (
+                <p className="registrationPage__successMessage">
+                  Registration was successful
+                </p>
+              )}
+              {serverError && (
+                <p className="registrationPage__serverError">{serverError}</p>
+              )}
+              <Button
+                title={loading ? "Loading..." : "Sign up"}
+                variant="withoutBackground"
+                type="submit"
+                className="button__center"
+                disabled={loading}
+              />
             </Form>
           );
         }}
       </Formik>
+      <span className="registrationPage__question">
+        Registered?
+        <Button
+          onClick={() => dispatch(togglePage())}
+          title="Sign in"
+          variant="textLink"
+          type="button"
+        />
+      </span>
     </section>
   );
 }

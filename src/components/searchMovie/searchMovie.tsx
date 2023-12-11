@@ -23,39 +23,40 @@ export default function SearchMovie() {
   return (
     <section className="searchMovie">
       <h1 className="searchMovie__title">Find your movie</h1>
-      <input
-        className="searchMovie__input"
-        type="text"
-        ref={inputRef}
-        placeholder={`Enter ${
-          searchMode === SearchMode.Title ? "title" : "genre"
-        }`}
-      />
-      <div className="searchMovie__buttons">
-        <div className="searchMovie__filter">
-          <p className="searchMovie__filter-description">search by</p>
-          <RadioButton
-            mode="title"
-            checked={searchMode === SearchMode.Title}
-            onChange={handleChangeSearchMode}
-            variant="withBorder"
-          />
-          <RadioButton
-            mode="genre"
-            checked={searchMode === SearchMode.Genre}
-            onChange={handleChangeSearchMode}
-            variant="withBorder"
-          />
-        </div>
-        <Button
-          onClick={() =>
-            inputRef.current &&
-            dispatch(setSearchString(inputRef.current.value.toLowerCase()))
-          }
-          variant="withBackground"
-          title="Search"
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          inputRef.current &&
+            dispatch(setSearchString(inputRef.current.value.toLowerCase()));
+        }}
+      >
+        <input
+          className="searchMovie__input"
+          type="text"
+          ref={inputRef}
+          placeholder={`Enter ${
+            searchMode === SearchMode.Title ? "title" : "genre"
+          }`}
         />
-      </div>
+        <div className="searchMovie__buttons">
+          <div className="searchMovie__filter">
+            <p className="searchMovie__filter-description">search by</p>
+            <RadioButton
+              mode="title"
+              checked={searchMode === SearchMode.Title}
+              onChange={handleChangeSearchMode}
+              variant="withBorder"
+            />
+            <RadioButton
+              mode="genre"
+              checked={searchMode === SearchMode.Genre}
+              onChange={handleChangeSearchMode}
+              variant="withBorder"
+            />
+          </div>
+          <Button variant="withBackground" title="Search" type="submit" />
+        </div>
+      </form>
     </section>
   );
 }

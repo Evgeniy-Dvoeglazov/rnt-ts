@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/appStore";
 
-interface authState {
+interface AuthState {
   value: boolean;
 }
 
-const initialState: authState = {
+const initialState: AuthState = {
   value: false,
 };
 
-export const loginSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -27,4 +27,4 @@ export const authSelector = (state: RootState) => state.auth.value;
 export const {
   actions: { login, logout },
   reducer: authReducer,
-} = loginSlice;
+} = authSlice;

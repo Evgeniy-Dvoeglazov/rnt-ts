@@ -1,20 +1,23 @@
-import axios from "axios";
-import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/appStore";
+import "./authorizationPage.css";
+import { Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/auth/authStore";
-import { useEffect } from "react";
+import { togglePage } from "../../store/page/pageStore";
+import Button from "../../components/button/button";
+import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
+import {
+  serverErrorSelector,
+  setServerError,
+} from "../../store/serverError/serverErrorStore";
+import FormField from "../../components/formField/formField";
+import { authorize, AuthorizeValues } from "./authorize";
 
-interface ValuesProps {
-  [key: string]: string;
-}
-
-const validate = (values: ValuesProps) => {
-  const errors: ValuesProps = {};
+const formFieldvalidate = (values: AuthorizeValues) => {
+  const errors: AuthorizeValues = {};
 
   if (!values.email) {
     errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (!/.+@.+\..+/i.test(values.email)) {
     errors.email = "Invalid email address";
   }
 
@@ -28,58 +31,81 @@ const validate = (values: ValuesProps) => {
   ) {
     errors.password = "The password must not contain duplicate symbols";
   }
+
   return errors;
 };
 
 export default function AuthorizationPage() {
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      dispatch(login());
-    }
-  }, []);
+  const dispatch = useDispatch();
+  const loading = useSelector(loadingSelector);
+  const serverError = useSelector(serverErrorSelector);
 
   return (
-    <section>
-      <h2>Sign in</h2>
+    <section className="authorizationPage">
+      <h2 className="authorizationPage__title">Sign in</h2>
       <Formik
         initialValues={{
           email: "",
           password: "",
         }}
-        onSubmit={async (values: ValuesProps) => {
-          await axios
-            .post(`http://localhost:3004/signin`, values)
+        onSubmit={async (values: AuthorizeValues) => {
+          dispatch(setLoading(true));
+          dispatch(setServerError(""));
+          await authorize(values)
             .then((res) => {
               localStorage.setItem("jwt", res.data.accessToken);
               dispatch(login());
             })
-            .catch((error) => console.log(error.response.data));
+            .catch((error) => {
+              dispatch(
+                setServerError(
+                  error.response.data.length !== 0
+                    ? error.response.data
+                    : "Something went wrong",
+                ),
+              );
+            })
+            .finally(() => dispatch(setLoading(false)));
         }}
-        validate={validate}
+        validate={formFieldvalidate}
       >
         {({ errors, touched }) => {
           const error = (name: string) =>
-            touched[name] && errors[name] && <div>{errors[name]}</div>;
+            touched[name] &&
+            errors[name] && (
+              <p className="authorizationPage__error">{errors[name]}</p>
+            );
           return (
-            <Form>
-              <label>
-                Email
-                <Field type="email" name="email" />
-                {error("email")}
-              </label>
-              <label>
-                Password
-                <Field type="password" name="password" />
-                {error("password")}
-              </label>
-              <button type="submit">Sign in</button>
+            <Form className="authorizationPage__form">
+              <FormField name="email" type="email" error={error("email")} />
+              <FormField
+                name="password"
+                type="password"
+                error={error("password")}
+              />
+              {serverError && (
+                <p className="authorizationPage__serverError">{serverError}</p>
+              )}
+              <Button
+                title={loading ? "Loading..." : "Sign in"}
+                variant="withoutBackground"
+                type="submit"
+                className="button__center"
+                disabled={loading}
+              />
             </Form>
           );
         }}
       </Formik>
+      <span className="authorizationPage__question">
+        Not registered?
+        <Button
+          onClick={() => dispatch(togglePage())}
+          title="Sign up"
+          variant="textLink"
+          type="button"
+        />
+      </span>
     </section>
   );
 }

@@ -2,8 +2,8 @@ import "./button.css";
 import classNames from "classnames";
 import type { ComponentPropsWithoutRef } from "react";
 
-interface buttonProps extends Omit<ComponentPropsWithoutRef<"button">, "type"> {
-  variant: "withBackground" | "withoutBackground";
+interface buttonProps extends ComponentPropsWithoutRef<"button"> {
+  variant: "withBackground" | "withoutBackground" | "textLink";
   title: string;
 }
 
@@ -15,7 +15,7 @@ export default function Button(props: buttonProps) {
   );
 
   return (
-    <button {...props} className={buttonClasses} type="button">
+    <button {...props} className={buttonClasses}>
       {props.title}
     </button>
   );
