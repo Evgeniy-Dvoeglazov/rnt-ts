@@ -12,11 +12,19 @@ import {
 import FormField from "../../components/formField/formField";
 import { authorize, AuthorizeValues } from "./authorize";
 import { authorizationValidate } from "./authorizationValidate";
+import { useEffect } from "react";
 
 export default function AuthorizationPage() {
   const dispatch = useDispatch();
   const loading = useSelector(loadingSelector);
   const serverError = useSelector(serverErrorSelector);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      dispatch(login());
+    }
+  }, []);
 
   return (
     <section className="authorizationPage">
