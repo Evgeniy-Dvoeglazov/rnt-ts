@@ -11,29 +11,7 @@ import {
 } from "../../store/serverError/serverErrorStore";
 import FormField from "../../components/formField/formField";
 import { authorize, AuthorizeValues } from "./authorize";
-
-const formFieldvalidate = (values: AuthorizeValues) => {
-  const errors: AuthorizeValues = {};
-
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/.+@.+\..+/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length < 9) {
-    errors.password = "The password must contain more than 8 symbols";
-  } else if (
-    values.password.length !==
-    Array.from(new Set(values.password)).join("").length
-  ) {
-    errors.password = "The password must not contain duplicate symbols";
-  }
-
-  return errors;
-};
+import { authorizationValidate } from "./authorizationValidate";
 
 export default function AuthorizationPage() {
   const dispatch = useDispatch();
@@ -67,7 +45,7 @@ export default function AuthorizationPage() {
             })
             .finally(() => dispatch(setLoading(false)));
         }}
-        validate={formFieldvalidate}
+        validate={authorizationValidate}
       >
         {({ errors, touched }) => {
           const error = (name: string) =>
