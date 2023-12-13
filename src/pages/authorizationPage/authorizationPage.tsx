@@ -2,7 +2,6 @@ import "./authorizationPage.css";
 import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/auth/authStore";
-import { togglePage } from "../../store/page/pageStore";
 import Button from "../../components/button/button";
 import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
 import {
@@ -13,16 +12,20 @@ import FormField from "../../components/formField/formField";
 import { authorize, AuthorizeValues } from "./authorize";
 import { authorizationValidate } from "./authorizationValidate";
 import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
 
 export default function AuthorizationPage() {
   const dispatch = useDispatch();
   const loading = useSelector(loadingSelector);
   const serverError = useSelector(serverErrorSelector);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       dispatch(login());
+      navigate(Pages.SearchMovie, { replace: true });
     }
   }, []);
 
@@ -41,6 +44,7 @@ export default function AuthorizationPage() {
             .then((res) => {
               localStorage.setItem("jwt", res.data.accessToken);
               dispatch(login());
+              navigate(Pages.SearchMovie, { replace: true });
             })
             .catch((error) => {
               dispatch(
@@ -85,12 +89,9 @@ export default function AuthorizationPage() {
       </Formik>
       <span className="authorizationPage__question">
         Not registered?
-        <Button
-          onClick={() => dispatch(togglePage())}
-          title="Sign up"
-          variant="textLink"
-          type="button"
-        />
+        <Link to={Pages.Registration} className="authorizationPage__link">
+          Sign up
+        </Link>
       </span>
     </section>
   );

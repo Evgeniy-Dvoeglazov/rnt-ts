@@ -1,0 +1,67 @@
+.movieInfoPage {
+  background-image: url("../../pictures/header-bg.jpg");
+  height: 100vh;
+}
+
+.movieInfoPage::before {
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.85;
+  content: "";
+}
+
+.movieInfoPage__navigation {
+  display: flex;
+  justify-content: flex-end;
+  padding: 70px 70px 0 70px;
+}
+
+.movieInfoPage__movieInfo {
+  padding: 70px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movieInfoPage__image {
+  height: 600px;
+  margin-right: 150px;
+  border: 1px solid #646464;
+}
+
+.movieInfoPage__title {
+  text-decoration: underline;
+  font-size: 45px;
+  letter-spacing: 1.5px;
+  margin: 30px 0 0;
+  text-transform: capitalize;
+}
+
+.movieInfoPage__genre {
+  margin: 10px 0 40px;
+  font-size: 24px;
+}
+
+.movieInfoPage__moreData {
+  display: flex;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 40px;
+}
+
+.movieInfoPage__year {
+  margin: 0 50px 0 0;
+}
+
+.movieInfoPage__duration {
+  margin: 0;
+}
+
+.movieInfoPage__description {
+  margin: 0;
+  font-size: 24px;
+}

@@ -1,6 +1,5 @@
 import "./registrationPage.css";
 import { Form, Formik } from "formik";
-import { togglePage } from "../../store/page/pageStore";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/button/button";
 import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
@@ -15,6 +14,8 @@ import {
 import FormField from "../../components/formField/formField";
 import { register, RegisterValues } from "./register";
 import { registrationValidate } from "./registrationValidate";
+import { Link } from "react-router-dom";
+import { Pages } from "../../app/app";
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
@@ -102,12 +103,9 @@ export default function RegistrationPage() {
       </Formik>
       <span className="registrationPage__question">
         Registered?
-        <Button
-          onClick={() => dispatch(togglePage())}
-          title="Sign in"
-          variant="textLink"
-          type="button"
-        />
+        <Link to={Pages.Authorization} className="registrationPage__link">
+          Sign in
+        </Link>
       </span>
     </section>
   );
