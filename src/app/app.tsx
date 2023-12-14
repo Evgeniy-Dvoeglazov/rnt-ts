@@ -7,7 +7,7 @@ import { authSelector } from "../store/auth/authStore";
 import { pageSelector, Page } from "../store/page/pageStore";
 
 export function App() {
-  const loggedIn = useSelector(authSelector);
+  const { loggedIn } = useSelector(authSelector);
   const currentPage = useSelector(pageSelector);
 
   return (

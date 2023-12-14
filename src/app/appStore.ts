@@ -3,9 +3,6 @@ import { selectedMovieReducer } from "../store/selectedMovie/selectedMovieStore"
 import { movieReducer } from "../store/movie/movieStore";
 import { authReducer } from "../store/auth/authStore";
 import { pageReducer } from "../store/page/pageStore";
-import { loadingReducer } from "../store/loading/loadingStore";
-import { serverErrorReducer } from "../store/serverError/serverErrorStore";
-import { successRegisterReducer } from "../store/successRegister/successRegisterStore";
 
 export const store = configureStore({
   reducer: {
@@ -13,9 +10,6 @@ export const store = configureStore({
     movie: movieReducer,
     auth: authReducer,
     page: pageReducer,
-    loading: loadingReducer,
-    serverError: serverErrorReducer,
-    successRegister: successRegisterReducer,
   },
 });
 
