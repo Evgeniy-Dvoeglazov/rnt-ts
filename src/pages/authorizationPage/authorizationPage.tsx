@@ -1,30 +1,36 @@
 import "./authorizationPage.css";
 import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/auth/authStore";
-import { togglePage } from "../../store/page/pageStore";
-import Button from "../../components/button/button";
-import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
 import {
-  serverErrorSelector,
-  setServerError,
-} from "../../store/serverError/serverErrorStore";
+  authSelector,
+  authorization,
+  login,
+  removeServerError,
+} from "../../store/auth/authStore";
+import Button from "../../components/button/button";
 import FormField from "../../components/formField/formField";
-import { authorize, AuthorizeValues } from "./authorize";
 import { authorizationValidate } from "./authorizationValidate";
 import { useEffect } from "react";
+import { AppDispatch } from "../../app/appStore";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
 
 export default function AuthorizationPage() {
-  const dispatch = useDispatch();
-  const loading = useSelector(loadingSelector);
-  const serverError = useSelector(serverErrorSelector);
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { loggedIn, serverError, loading } = useSelector(authSelector);
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       dispatch(login());
+      navigate(Pages.SearchMovie, { replace: true });
     }
-  }, []);
+  }, [dispatch, navigate]);
+
+  useEffect(() => {
+    loggedIn && navigate(Pages.SearchMovie, { replace: true });
+  }, [loggedIn, navigate]);
 
   return (
     <section className="authorizationPage">
@@ -34,25 +40,7 @@ export default function AuthorizationPage() {
           email: "",
           password: "",
         }}
-        onSubmit={async (values: AuthorizeValues) => {
-          dispatch(setLoading(true));
-          dispatch(setServerError(""));
-          await authorize(values)
-            .then((res) => {
-              localStorage.setItem("jwt", res.data.accessToken);
-              dispatch(login());
-            })
-            .catch((error) => {
-              dispatch(
-                setServerError(
-                  error.response.data.length !== 0
-                    ? error.response.data
-                    : "Something went wrong",
-                ),
-              );
-            })
-            .finally(() => dispatch(setLoading(false)));
-        }}
+        onSubmit={(values) => dispatch(authorization(values))}
         validate={authorizationValidate}
       >
         {({ errors, touched }) => {
@@ -86,7 +74,10 @@ export default function AuthorizationPage() {
       <span className="authorizationPage__question">
         Not registered?
         <Button
-          onClick={() => dispatch(togglePage())}
+          onClick={() => {
+            dispatch(removeServerError());
+            navigate(Pages.Registration, { replace: true });
+          }}
           title="Sign up"
           variant="textLink"
           type="button"

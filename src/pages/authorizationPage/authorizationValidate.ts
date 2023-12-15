@@ -1,7 +1,7 @@
-import { AuthorizeValues } from "./authorize";
+import { AuthValues } from "../../store/auth/authStore";
 
-export const authorizationValidate = (values: AuthorizeValues) => {
-  const errors: AuthorizeValues = {};
+export const authorizationValidate = (values: AuthValues) => {
+  const errors: AuthValues = {};
 
   if (!values.email) {
     errors.email = "Required";

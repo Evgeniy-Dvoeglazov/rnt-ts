@@ -1,7 +1,6 @@
 .button {
   color: #fff;
   border-radius: 5px;
-  padding: 10px 70px;
   cursor: pointer;
   text-transform: uppercase;
   font-family: "Inter", "Arial", "Helvetica", sans-serif;
@@ -16,6 +15,7 @@
 
 .button_withBackground {
   background-color: #16b939;
+  padding: 10px 70px;
   border: none;
   cursor: pointer;
   transition: box-shadow 0.2s linear;
@@ -26,6 +26,7 @@
 }
 
 .button_withoutBackground {
+  padding: 10px 50px;
   z-index: 2;
   background: none;
   border: 2px solid #fff;

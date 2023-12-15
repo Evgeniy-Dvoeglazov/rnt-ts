@@ -1,26 +1,22 @@
 import "./registrationPage.css";
 import { Form, Formik } from "formik";
-import { togglePage } from "../../store/page/pageStore";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/button/button";
-import { loadingSelector, setLoading } from "../../store/loading/loadingStore";
-import {
-  serverErrorSelector,
-  setServerError,
-} from "../../store/serverError/serverErrorStore";
-import {
-  isSuccessRegister,
-  successRegisterSelector,
-} from "../../store/successRegister/successRegisterStore";
 import FormField from "../../components/formField/formField";
-import { register, RegisterValues } from "./register";
 import { registrationValidate } from "./registrationValidate";
+import {
+  authSelector,
+  registration,
+  removeServerError,
+} from "../../store/auth/authStore";
+import { AppDispatch } from "../../app/appStore";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
 
 export default function RegistrationPage() {
-  const dispatch = useDispatch();
-  const loading = useSelector(loadingSelector);
-  const serverError = useSelector(serverErrorSelector);
-  const successRegister = useSelector(successRegisterSelector);
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { serverError, loading, successRegister } = useSelector(authSelector);
 
   return (
     <section className="registrationPage">
@@ -32,26 +28,7 @@ export default function RegistrationPage() {
           email: "",
           confirmPassword: "",
         }}
-        onSubmit={async (values: RegisterValues) => {
-          dispatch(setLoading(true));
-          dispatch(setServerError(""));
-          dispatch(isSuccessRegister(false));
-          await register(values)
-            .then((res) => {
-              dispatch(isSuccessRegister(true));
-              res.data;
-            })
-            .catch((error) => {
-              dispatch(
-                setServerError(
-                  error.response.data.length !== 0
-                    ? error.response.data
-                    : "Something went wrong",
-                ),
-              );
-            })
-            .finally(() => dispatch(setLoading(false)));
-        }}
+        onSubmit={(values) => dispatch(registration(values))}
         validate={registrationValidate}
       >
         {({ errors, touched }) => {
@@ -103,7 +80,10 @@ export default function RegistrationPage() {
       <span className="registrationPage__question">
         Registered?
         <Button
-          onClick={() => dispatch(togglePage())}
+          onClick={() => {
+            dispatch(removeServerError());
+            navigate(Pages.Authorization, { replace: true });
+          }}
           title="Sign in"
           variant="textLink"
           type="button"
