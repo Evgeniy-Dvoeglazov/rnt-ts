@@ -54,3 +54,8 @@
   display: block;
   text-align: center;
 }
+
+.registrationPage__link {
+  margin-left: 15px;
+  color: #fff;
+}

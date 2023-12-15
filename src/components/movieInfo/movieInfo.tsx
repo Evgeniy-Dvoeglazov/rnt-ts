@@ -1,7 +1,7 @@
 import "./movieInfo.css";
 import { MovieObject } from "../movie/movie";
 
-interface SelectedMovieProps {
+export interface SelectedMovieProps {
   selectedMovie: MovieObject;
 }
 

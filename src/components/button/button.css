@@ -36,17 +36,3 @@
 .button_withoutBackground:hover {
   background: #088022;
 }
-
-.button_textLink {
-  z-index: 2;
-  background: none;
-  text-decoration: underline;
-  border: none;
-  padding: 0 0 0 20px;
-  text-transform: capitalize;
-  transition: opacity 0.3s linear;
-}
-
-.button_textLink:hover {
-  opacity: 0.7;
-}

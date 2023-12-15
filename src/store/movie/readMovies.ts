@@ -1,5 +1,6 @@
 import axios from "axios";
 import { SearchMode } from "./movieStore";
+import { serverUrl } from "../../utils/constants/url";
 
 export type GetMoviesParams = {
   _sort: string;
@@ -8,5 +9,5 @@ export type GetMoviesParams = {
 };
 
 export function readMovies(params: GetMoviesParams) {
-  return axios.get(`http://localhost:3004/movies`, { params });
+  return axios.get(`${serverUrl}/movies`, { params });
 }

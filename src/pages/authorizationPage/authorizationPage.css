@@ -32,3 +32,8 @@
   display: block;
   text-align: center;
 }
+
+.authorizationPage__link {
+  margin-left: 15px;
+  color: #fff;
+}
