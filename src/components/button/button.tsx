@@ -3,7 +3,7 @@ import classNames from "classnames";
 import type { ComponentPropsWithoutRef } from "react";
 
 interface buttonProps extends ComponentPropsWithoutRef<"button"> {
-  variant: "withBackground" | "withoutBackground";
+  variant: "withBackground" | "withoutBackground" | "textLink";
   title: string;
 }
 

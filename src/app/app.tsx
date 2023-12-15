@@ -48,31 +48,6 @@ export function App() {
         <Route path={Pages.Registration} element={<RegistrationPage />} />
         <Route path={Pages.NotFound} element={<NotFoundPage />} />
       </Routes>
-      <Routes>
-        <Route
-          path={Pages.SearchMovie}
-          element={
-            loggedIn ? (
-              <SearchMoviePage />
-            ) : (
-              <Navigate to={Pages.Authorization} />
-            )
-          }
-        />
-        <Route
-          path={Pages.MovieInfo}
-          element={
-            loggedIn && selectedMovie ? (
-              <MovieInfoPage selectedMovie={selectedMovie} />
-            ) : (
-              <Navigate to={Pages.Authorization} />
-            )
-          }
-        />
-        <Route path={Pages.Authorization} element={<AuthorizationPage />} />
-        <Route path={Pages.Registration} element={<RegistrationPage />} />
-        <Route path={Pages.NotFound} element={<NotFoundPage />} />
-      </Routes>
     </div>
   );
 }
