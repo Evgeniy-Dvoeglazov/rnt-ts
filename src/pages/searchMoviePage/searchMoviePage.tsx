@@ -11,6 +11,8 @@ import {
 import { movieSelector } from "../../store/movie/movieStore";
 import { AppDispatch } from "../../app/appStore";
 import { GetMoviesParams } from "../../store/movie/readMovies";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 export default function SearchMoviePage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,41 +36,43 @@ export default function SearchMoviePage() {
     dispatch(getMovies(searchString ? searchMoviesParams : sortMoviesParams));
   }, [dispatch, searchString, sortMode, searchMode]);
 
-  if (loading) {
-    return <h2 className="searchMoviePage__title">Loading...</h2>;
-  }
-
-  if (error) {
-    return <h2 className="searchMoviePage__title">{error}</h2>;
-  }
-
   return (
-    <section className="searchMoviePage">
-      <div className="searchMoviePage__header">
-        <p className="searchMoviePage__moviesCount">
-          {moviesData.length} movies found
-        </p>
-        <div className="searchMoviePage__filter">
-          <p className="searchMoviePage__filterDescription">Sort by</p>
-          <RadioButton
-            mode="release date"
-            checked={sortMode === SortMode.ReleaseDate}
-            onChange={handleChangeRadio}
-            variant="withoutBorder"
-          />
-          <RadioButton
-            mode="title"
-            checked={sortMode === SortMode.Title}
-            onChange={handleChangeRadio}
-            variant="withoutBorder"
-          />
-        </div>
-      </div>
-      {moviesData.length !== 0 ? (
-        <MovieList movies={moviesData} />
-      ) : (
-        <h2 className="searchMoviePage__title">No films found</h2>
+    <>
+      <Header />
+      {loading && <h2 className="searchMoviePage__title">Loading...</h2>}
+      {error && <h2 className="searchMoviePage__title">{error}</h2>}
+      {!error && !loading && (
+        <section className="searchMoviePage">
+          <div className="searchMoviePage__header">
+            <p className="searchMoviePage__moviesCount">
+              {moviesData.length} movies found
+            </p>
+            <div className="searchMoviePage__filter">
+              <p className="searchMoviePage__filterDescription">Sort by</p>
+              <form>
+                <RadioButton
+                  mode="release date"
+                  checked={sortMode === SortMode.ReleaseDate}
+                  variant="withoutBorder"
+                  onChange={handleChangeRadio}
+                />
+                <RadioButton
+                  mode="title"
+                  checked={sortMode === SortMode.Title}
+                  variant="withoutBorder"
+                  onChange={handleChangeRadio}
+                />
+              </form>
+            </div>
+          </div>
+          {moviesData.length !== 0 ? (
+            <MovieList movies={moviesData} />
+          ) : (
+            <h2 className="searchMoviePage__title">No films found</h2>
+          )}
+        </section>
       )}
-    </section>
+      <Footer />
+    </>
   );
 }

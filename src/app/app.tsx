@@ -1,14 +1,28 @@
 import "./app.css";
-import Header from "../components/header/header";
 import SearchMoviePage from "../pages/searchMoviePage/searchMoviePage";
-import Footer from "../components/footer/footer";
+import AuthorizationPage from "../pages/authorizationPage/authorizationPage";
+import RegistrationPage from "../pages/registrationPage/registrationPage";
+import { useSelector } from "react-redux";
+import { authSelector } from "../store/auth/authStore";
+import { pageSelector, Page } from "../store/page/pageStore";
 
 export function App() {
+  const { loggedIn } = useSelector(authSelector);
+  const currentPage = useSelector(pageSelector);
+
   return (
     <div className="app">
-      <Header />
-      <SearchMoviePage />
-      <Footer />
+      {loggedIn ? (
+        <SearchMoviePage />
+      ) : (
+        <>
+          {currentPage === Page.Authorization ? (
+            <AuthorizationPage />
+          ) : (
+            <RegistrationPage />
+          )}
+        </>
+      )}
     </div>
   );
 }

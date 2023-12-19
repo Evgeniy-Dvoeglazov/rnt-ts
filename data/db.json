@@ -1,4 +1,104 @@
 {
+  "users": [
+    {
+      "email": "ppp@ppp.ru",
+      "password": "$2a$10$.em5nUZpmwvgAyfazXtmcOqSAI5AYr9s6hMMsKMjJgspvGPIgesGa",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 1
+    },
+    {
+      "email": "zzz@zzz.ru",
+      "password": "$2a$10$4FKFfSfgred7T5tnukgdFeJe0gP5bWL.3FDEAiKmjawpRYOhV4v02",
+      "username": "EEE",
+      "confirmPassword": "asdfghjkl",
+      "id": 2
+    },
+    {
+      "email": "ppp@pppd.ru",
+      "password": "$2a$10$HC90un4i9T0OQh5AtuRuG.yH1gyLd5lU7bHGD7msQubyS.TMnJGdK",
+      "username": "EEE",
+      "confirmPassword": "asdfghjkl",
+      "id": 3
+    },
+    {
+      "email": "ppp@pppdd.ru",
+      "password": "$2a$10$gxd1ooRL/fLuRZj3tBwSrOGhUTcC.eWA1zfRUQYpZa4yIZxUYDga2",
+      "username": "EEE",
+      "confirmPassword": "asdfghjkl",
+      "id": 4
+    },
+    {
+      "email": "dddzzz@zzz.ru",
+      "password": "$2a$10$TN6.RPTAUw8JFd3zlY.3wuk9DtA896yVfC.8M6cJt8uxBCWgX4up2",
+      "username": "WWW",
+      "confirmPassword": "asdfghjkl",
+      "id": 5
+    },
+    {
+      "email": "zzzfff@zzz.ru",
+      "password": "$2a$10$guVeJSfR4Ynq2/35LURG.uc.3JI9M4lv9p6HfM0Y0mRwo7MUoadzW",
+      "username": "WWW",
+      "confirmPassword": "asdfghjkl",
+      "id": 6
+    },
+    {
+      "email": "zzzfssff@zzz.ru",
+      "password": "$2a$10$zlnhnQKzI8Ik.RgwotJB/ODG53YsXwYErELcHSS.SPeu1a/wOQavu",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 7
+    },
+    {
+      "email": "zzffffz@zzz.ru",
+      "password": "$2a$10$ROZGJwIx88vK6qgcVSZw3.tRVNi5urPIrMBDz69Z2SvX73W3jdkN2",
+      "username": "WWW",
+      "confirmPassword": "asdfghjkl",
+      "id": 8
+    },
+    {
+      "email": "ppfffffp@ppp.ru",
+      "password": "$2a$10$jBUeN/eDATIIp9XZchh35.sdod61hZKt7iuHj5YhtASfGnOKSfz92",
+      "username": "EEE",
+      "confirmPassword": "asdfghjkl",
+      "id": 9
+    },
+    {
+      "email": "pppfffff@ppp.ru",
+      "password": "$2a$10$H7fxH.0q9mmiNL4.cafu2uZVwDGrdqgt2lqqz8Iho5GA6bY..4/za",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 10
+    },
+    {
+      "email": "pdddddpp@ppp.ru",
+      "password": "$2a$10$V8XIk6yti/wD19Q.nUdu.OQZMqhMDZI8kJNhwmq.WVOHoy8q85gym",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 11
+    },
+    {
+      "email": "pppdsdd@ppp.ru",
+      "password": "$2a$10$D4Z36dmcC48n58sxApgOd.wTztCLRhUzxh9zgf8o6m6nHyphs7tpW",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 12
+    },
+    {
+      "email": "ppdfgdfgp@ppp.ru",
+      "password": "$2a$10$hCJxzOAlWnScw21HCIUUPO8N8I/g7G0oQjoRmxLZNOfIKAAvd7ds2",
+      "username": "QQQ",
+      "confirmPassword": "qwertyuio",
+      "id": 13
+    },
+    {
+      "email": "psdfsdfpp@ppp.ru",
+      "password": "$2a$10$QmnWDbYStPYV.VT2DVxtJ.Z368IDq/cYPLjKBdc6JQdi54r.Y2NfS",
+      "username": "WWW",
+      "confirmPassword": "qwertyuio",
+      "id": 14
+    }
+  ],
   "movies": [
     {
       "id": 1,
