@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/appStore";
 import { authorize } from "./authorize";
 import { register } from "./register";
+import { authToken } from "../../utils/constants/constants";
 
 export interface AuthValues {
   [key: string]: string;
@@ -28,11 +29,13 @@ interface AuthState {
   loading: boolean;
   serverError?: string;
   successRegister?: boolean;
+  token: string | null;
 }
 
 const initialState: AuthState = {
   loggedIn: false,
   loading: false,
+  token: sessionStorage.getItem(authToken),
 };
 
 export const authSlice = createSlice({
@@ -44,6 +47,8 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.loggedIn = false;
+      sessionStorage.removeItem(authToken);
+      state.token = null;
     },
     removeServerError: (state) => {
       state.serverError = undefined;
@@ -57,7 +62,7 @@ export const authSlice = createSlice({
     builder.addCase(authorization.fulfilled, (state, action) => {
       state.loading = false;
       state.loggedIn = true;
-      localStorage.setItem("jwt", action.payload.accessToken);
+      sessionStorage.setItem(authToken, action.payload.accessToken);
     });
     builder.addCase(authorization.rejected, (state, action) => {
       state.loading = false;

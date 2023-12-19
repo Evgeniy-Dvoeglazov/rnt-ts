@@ -1,47 +1,54 @@
 import "./movieInfoPage.css";
-import { MovieObject } from "../../components/movie/movie";
 import Button from "../../components/button/button";
-import { useDispatch } from "react-redux";
-import { removeSelectedMovie } from "../../store/selectedMovie/selectedMovieStore";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeSelectedMovie,
+  selectedMovieSelector,
+} from "../../store/selectedMovie/selectedMovieStore";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
+import { AppDispatch } from "../../app/appStore";
 
-export interface SelectedMovieProps {
-  selectedMovie: MovieObject;
-}
+export default function MovieInfoPage() {
+  const dispatch = useDispatch<AppDispatch>();
+  const selectedMovie = useSelector(selectedMovieSelector);
+  const navigate = useNavigate();
 
-export default function MovieInfoPage({ selectedMovie }: SelectedMovieProps) {
-  const dispatch = useDispatch();
   return (
-    <section className="movieInfoPage">
-      <div className="movieInfoPage__navigation">
-        <Button
-          onClick={() => {
-            dispatch(removeSelectedMovie());
-          }}
-          variant="withoutBackground"
-          title="Back to search"
-          type="button"
-        />
-      </div>
-      <div className="movieInfoPage__movieInfo">
-        <img
-          className="movieInfoPage__image"
-          src={selectedMovie.image}
-          alt="movie-image"
-        />
-        <div className="movieInfoPage__text">
-          <h2 className="movieInfoPage__title">{selectedMovie.title}</h2>
-          <p className="movieInfoPage__genre">{selectedMovie.genre}</p>
-          <div className="movieInfoPage__moreData">
-            <p className="movieInfoPage__year">{selectedMovie.year}</p>
-            <p className="movieInfoPage__duration">
-              {selectedMovie.duration} min
+    selectedMovie && (
+      <section className="movieInfoPage">
+        <div className="movieInfoPage__navigation">
+          <Button
+            onClick={() => {
+              dispatch(removeSelectedMovie());
+              navigate(Pages.SearchMovie, { replace: true });
+            }}
+            variant="withoutBackground"
+            title="Back to search"
+            type="button"
+          />
+        </div>
+        <div className="movieInfoPage__movieInfo">
+          <img
+            className="movieInfoPage__image"
+            src={selectedMovie.image}
+            alt="movie-image"
+          />
+          <div className="movieInfoPage__text">
+            <h2 className="movieInfoPage__title">{selectedMovie.title}</h2>
+            <p className="movieInfoPage__genre">{selectedMovie.genre}</p>
+            <div className="movieInfoPage__moreData">
+              <p className="movieInfoPage__year">{selectedMovie.year}</p>
+              <p className="movieInfoPage__duration">
+                {selectedMovie.duration} min
+              </p>
+            </div>
+            <p className="movieInfoPage__description">
+              {selectedMovie.description}
             </p>
           </div>
-          <p className="movieInfoPage__description">
-            {selectedMovie.description}
-          </p>
         </div>
-      </div>
-    </section>
+      </section>
+    )
   );
 }

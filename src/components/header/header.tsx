@@ -4,9 +4,10 @@ import SearchMovie from "../searchMovie/searchMovie";
 import Button from "../button/button";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/auth/authStore";
+import { AppDispatch } from "../../app/appStore";
 
 export default function Header() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <header className="header">
@@ -15,7 +16,6 @@ export default function Header() {
         <Button
           onClick={() => {
             dispatch(logout());
-            localStorage.removeItem("jwt");
           }}
           variant="withoutBackground"
           title="Log Out"

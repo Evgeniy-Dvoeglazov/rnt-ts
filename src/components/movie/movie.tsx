@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import { setSelectedMovie } from "../../store/selectedMovie/selectedMovieStore";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../app/app";
+import { AppDispatch } from "../../app/appStore";
 
 type Genre = "drama" | "horror" | "adventure" | "fantasy" | "thriller";
 
@@ -22,7 +23,7 @@ interface MovieProps {
 }
 
 export function Movie({ movie }: MovieProps) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const openMovieInfo = useCallback(

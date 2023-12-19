@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/button/button";
 import FormField from "../../components/formField/formField";
-import { registrationValidate } from "./registrationValidate";
 import {
   authSelector,
   registration,
@@ -12,6 +11,7 @@ import {
 import { AppDispatch } from "../../app/appStore";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../app/app";
+import { registrationValidate } from "../../utils/constants/validate";
 
 export default function RegistrationPage() {
   const dispatch = useDispatch<AppDispatch>();

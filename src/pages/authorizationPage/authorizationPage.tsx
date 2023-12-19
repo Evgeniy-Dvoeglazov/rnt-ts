@@ -4,29 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   authSelector,
   authorization,
-  login,
   removeServerError,
 } from "../../store/auth/authStore";
 import Button from "../../components/button/button";
 import FormField from "../../components/formField/formField";
-import { authorizationValidate } from "./authorizationValidate";
 import { useEffect } from "react";
 import { AppDispatch } from "../../app/appStore";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../app/app";
+import { authorizationValidate } from "../../utils/constants/validate";
 
 export default function AuthorizationPage() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { loggedIn, serverError, loading } = useSelector(authSelector);
-
-  useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      dispatch(login());
-      navigate(Pages.SearchMovie, { replace: true });
-    }
-  }, [dispatch, navigate]);
 
   useEffect(() => {
     loggedIn && navigate(Pages.SearchMovie, { replace: true });
