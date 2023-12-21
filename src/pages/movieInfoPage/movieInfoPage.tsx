@@ -11,11 +11,11 @@ import { AppDispatch } from "../../app/appStore";
 
 export default function MovieInfoPage() {
   const dispatch = useDispatch<AppDispatch>();
-  const selectedMovie = useSelector(selectedMovieSelector);
+  const { movie } = useSelector(selectedMovieSelector);
   const navigate = useNavigate();
 
   return (
-    selectedMovie && (
+    movie && (
       <section className="movieInfoPage">
         <div className="movieInfoPage__navigation">
           <Button
@@ -31,21 +31,17 @@ export default function MovieInfoPage() {
         <div className="movieInfoPage__movieInfo">
           <img
             className="movieInfoPage__image"
-            src={selectedMovie.image}
+            src={movie.image}
             alt="movie-image"
           />
           <div className="movieInfoPage__text">
-            <h2 className="movieInfoPage__title">{selectedMovie.title}</h2>
-            <p className="movieInfoPage__genre">{selectedMovie.genre}</p>
+            <h2 className="movieInfoPage__title">{movie.title}</h2>
+            <p className="movieInfoPage__genre">{movie.genre}</p>
             <div className="movieInfoPage__moreData">
-              <p className="movieInfoPage__year">{selectedMovie.year}</p>
-              <p className="movieInfoPage__duration">
-                {selectedMovie.duration} min
-              </p>
+              <p className="movieInfoPage__year">{movie.year}</p>
+              <p className="movieInfoPage__duration">{movie.duration} min</p>
             </div>
-            <p className="movieInfoPage__description">
-              {selectedMovie.description}
-            </p>
+            <p className="movieInfoPage__description">{movie.description}</p>
           </div>
         </div>
       </section>

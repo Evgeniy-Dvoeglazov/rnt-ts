@@ -39,39 +39,41 @@ export default function SearchMoviePage() {
   return (
     <>
       <Header />
-      {loading && <h2 className="searchMoviePage__title">Loading...</h2>}
-      {error && <h2 className="searchMoviePage__title">{error}</h2>}
-      {!error && !loading && (
-        <section className="searchMoviePage">
-          <div className="searchMoviePage__header">
-            <p className="searchMoviePage__moviesCount">
-              {moviesData.length} movies found
-            </p>
-            <div className="searchMoviePage__filter">
-              <p className="searchMoviePage__filterDescription">Sort by</p>
-              <form>
-                <RadioButton
-                  mode="release date"
-                  checked={sortMode === SortMode.ReleaseDate}
-                  variant="withoutBorder"
-                  onChange={handleChangeRadio}
-                />
-                <RadioButton
-                  mode="title"
-                  checked={sortMode === SortMode.Title}
-                  variant="withoutBorder"
-                  onChange={handleChangeRadio}
-                />
-              </form>
+      <section className="searchMoviePage">
+        {loading && <h2 className="searchMoviePage__title">Loading...</h2>}
+        {error && <h2 className="searchMoviePage__title">{error}</h2>}
+        {!loading && !error && (
+          <>
+            <div className="searchMoviePage__header">
+              <p className="searchMoviePage__moviesCount">
+                {moviesData.length} movies found
+              </p>
+              <div className="searchMoviePage__filter">
+                <p className="searchMoviePage__filterDescription">Sort by</p>
+                <form>
+                  <RadioButton
+                    mode="release date"
+                    checked={sortMode === SortMode.ReleaseDate}
+                    variant="withoutBorder"
+                    onChange={handleChangeRadio}
+                  />
+                  <RadioButton
+                    mode="title"
+                    checked={sortMode === SortMode.Title}
+                    variant="withoutBorder"
+                    onChange={handleChangeRadio}
+                  />
+                </form>
+              </div>
             </div>
-          </div>
-          {moviesData.length !== 0 ? (
-            <MovieList movies={moviesData} />
-          ) : (
-            <h2 className="searchMoviePage__title">No films found</h2>
-          )}
-        </section>
-      )}
+            {moviesData.length !== 0 ? (
+              <MovieList movies={moviesData} />
+            ) : (
+              <h2 className="searchMoviePage__title">No films found</h2>
+            )}
+          </>
+        )}
+      </section>
       <Footer />
     </>
   );

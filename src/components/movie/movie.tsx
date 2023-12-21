@@ -1,10 +1,11 @@
 import "./movie.css";
 import { useDispatch } from "react-redux";
 import { useCallback } from "react";
-import { setSelectedMovie } from "../../store/selectedMovie/selectedMovieStore";
+import { getSelectedMovie } from "../../store/selectedMovie/selectedMovieStore";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../app/app";
 import { AppDispatch } from "../../app/appStore";
+import { GetSelectedMovieParams } from "../../store/selectedMovie/readSelectedMovie";
 
 type Genre = "drama" | "horror" | "adventure" | "fantasy" | "thriller";
 
@@ -28,8 +29,9 @@ export function Movie({ movie }: MovieProps) {
 
   const openMovieInfo = useCallback(
     (movie: MovieObject) => {
-      dispatch(setSelectedMovie(movie));
-      navigate(Pages.MovieInfo, { replace: true });
+      const selectedMovieParams: GetSelectedMovieParams = { id: movie.id };
+      dispatch(getSelectedMovie(selectedMovieParams));
+      navigate(`${Pages.MovieInfo}-${movie.id}`, { replace: true });
     },
     [dispatch, navigate],
   );

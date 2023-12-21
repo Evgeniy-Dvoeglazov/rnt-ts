@@ -29,13 +29,11 @@ interface AuthState {
   loading: boolean;
   serverError?: string;
   successRegister?: boolean;
-  token: string | null;
 }
 
 const initialState: AuthState = {
   loggedIn: false,
   loading: false,
-  token: sessionStorage.getItem(authToken),
 };
 
 export const authSlice = createSlice({
@@ -48,7 +46,6 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.loggedIn = false;
       sessionStorage.removeItem(authToken);
-      state.token = null;
     },
     removeServerError: (state) => {
       state.serverError = undefined;

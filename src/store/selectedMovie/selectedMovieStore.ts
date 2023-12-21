@@ -1,32 +1,54 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { MovieObject } from "../../components/movie/movie";
 import { RootState } from "../../app/appStore";
+import { GetSelectedMovieParams, readSelectedMovie } from "./readSelectedMovie";
 
 interface SelectedMovieState {
-  value: MovieObject | null;
+  movie: MovieObject | null;
+  loading: boolean;
+  error?: string;
 }
 
 const initialState: SelectedMovieState = {
-  value: null,
+  movie: null,
+  loading: false,
 };
+
+export const getSelectedMovie = createAsyncThunk(
+  "movies/getSelecrtedMovie",
+  async (params: GetSelectedMovieParams) => {
+    const res = await readSelectedMovie(params);
+    return res.data[0];
+  },
+);
 
 export const selectedMovieSlice = createSlice({
   name: "selectedMovie",
   initialState,
   reducers: {
-    setSelectedMovie: (state, action: PayloadAction<MovieObject>) => {
-      state.value = action.payload;
-    },
     removeSelectedMovie: (state) => {
-      state.value = null;
+      state.movie = null;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getSelectedMovie.pending, (state) => {
+      state.loading = true;
+      state.error = undefined;
+    });
+    builder.addCase(getSelectedMovie.fulfilled, (state, action) => {
+      state.loading = false;
+      state.movie = action.payload;
+    });
+    builder.addCase(getSelectedMovie.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
   },
 });
 
-export const selectedMovieSelector = (state: RootState) =>
-  state.selectedMovie.value;
+export const selectedMovieSelector = (state: RootState) => state.selectedMovie;
 
 export const {
-  actions: { setSelectedMovie, removeSelectedMovie },
+  actions: { removeSelectedMovie },
   reducer: selectedMovieReducer,
 } = selectedMovieSlice;
