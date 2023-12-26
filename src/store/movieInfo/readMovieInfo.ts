@@ -1,10 +1,10 @@
 import axios from "axios";
 import { serverUrl } from "../../utils/constants/url";
 
-export type GetSelectedMovieParams = {
-  id: number;
+export type GetMovieInfoParams = {
+  id: string;
 };
 
-export function readSelectedMovie(params: GetSelectedMovieParams) {
+export function readMovieInfo(params: GetMovieInfoParams) {
   return axios.get(`${serverUrl}/movies`, { params });
 }
