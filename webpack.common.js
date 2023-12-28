@@ -8,7 +8,8 @@ module.exports = {
   entry: "./index.tsx",
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "bundle.js",
+    publicPath: "/",
   },
 
   resolve: {

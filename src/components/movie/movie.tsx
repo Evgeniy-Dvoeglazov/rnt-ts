@@ -1,7 +1,7 @@
 import "./movie.css";
-import { useDispatch } from "react-redux";
 import { useCallback } from "react";
-import { setSelectedMovie } from "../../store/selectedMovie/selectedMovieStore";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
 
 type Genre = "drama" | "horror" | "adventure" | "fantasy" | "thriller";
 
@@ -20,14 +20,15 @@ interface MovieProps {
 }
 
 export function Movie({ movie }: MovieProps) {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const openMovieInfo = useCallback(
     (movie: MovieObject) => {
-      window.scrollTo(0, 0);
-      dispatch(setSelectedMovie(movie));
+      navigate(Pages.MovieInfo.replace(":movieId", String(movie.id)), {
+        replace: true,
+      });
     },
-    [dispatch],
+    [navigate],
   );
 
   return (

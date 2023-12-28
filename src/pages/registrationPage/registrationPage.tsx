@@ -1,19 +1,21 @@
 import "./registrationPage.css";
 import { Form, Formik } from "formik";
-import { togglePage } from "../../store/page/pageStore";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/button/button";
 import FormField from "../../components/formField/formField";
-import { registrationValidate } from "./registrationValidate";
 import {
   authSelector,
   registration,
   removeServerError,
 } from "../../store/auth/authStore";
 import { AppDispatch } from "../../app/appStore";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../app/app";
+import { registrationValidate } from "../../utils/constants/validate";
 
 export default function RegistrationPage() {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const { serverError, loading, successRegister } = useSelector(authSelector);
 
   return (
@@ -80,7 +82,7 @@ export default function RegistrationPage() {
         <Button
           onClick={() => {
             dispatch(removeServerError());
-            dispatch(togglePage());
+            navigate(Pages.Authorization, { replace: true });
           }}
           title="Sign in"
           variant="textLink"

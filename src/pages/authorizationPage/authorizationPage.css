@@ -1,6 +1,6 @@
 .authorizationPage {
   margin: auto;
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(63, 63, 63);
   width: 500px;
   border-radius: 10px;
   padding: 40px;
@@ -31,4 +31,9 @@
 .authorizationPage__question {
   display: block;
   text-align: center;
+}
+
+.authorizationPage__link {
+  margin-left: 15px;
+  color: #fff;
 }

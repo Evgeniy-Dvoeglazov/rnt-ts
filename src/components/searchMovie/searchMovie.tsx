@@ -9,10 +9,11 @@ import {
   setSearchString,
   toggleSearchMode,
 } from "../../store/movie/movieStore";
+import { AppDispatch } from "../../app/appStore";
 
 export default function SearchMovie() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { searchMode } = useSelector(movieSelector);
 

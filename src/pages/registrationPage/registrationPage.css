@@ -1,6 +1,6 @@
 .registrationPage {
   margin: auto;
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(63, 63, 63);
   width: 500px;
   border-radius: 10px;
   padding: 40px;
@@ -53,4 +53,9 @@
 .registrationPage__question {
   display: block;
   text-align: center;
+}
+
+.registrationPage__link {
+  margin-left: 15px;
+  color: #fff;
 }
