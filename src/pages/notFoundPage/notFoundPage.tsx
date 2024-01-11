@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function NotFoundPage() {
   return (
-    <section className="notFoundPage">
+    <section className="notFoundPage" data-testid="notFoundPage">
       <div className="notFoundPage__container">
         <h2 className="notFoundPage__title">404</h2>
         <p className="notFoundPage__description">Страница не найдена</p>

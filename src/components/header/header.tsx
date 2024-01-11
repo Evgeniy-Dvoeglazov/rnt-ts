@@ -10,7 +10,7 @@ export default function Header() {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
-    <header className="header">
+    <header className="header" data-testid="header">
       <div className="header__navigation">
         <Logo />
         <Button

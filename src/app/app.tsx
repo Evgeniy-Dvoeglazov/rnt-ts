@@ -20,7 +20,7 @@ export function App() {
   const loggedIn = useLogin();
 
   return (
-    <div className="app">
+    <div className="app" data-testid="app">
       <Routes>
         <Route
           path={Pages.SearchMovie}

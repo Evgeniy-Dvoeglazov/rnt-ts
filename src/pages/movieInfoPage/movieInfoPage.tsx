@@ -35,7 +35,7 @@ export default function MovieInfoPage() {
 
   return (
     <>
-      <section className="movieInfoPage">
+      <section className="movieInfoPage" data-testid="movieInfoPage">
         <div className="movieInfoPage__navigation">
           <Button
             onClick={() => {
@@ -45,6 +45,7 @@ export default function MovieInfoPage() {
             variant="withoutBackground"
             title="Back to search"
             type="button"
+            data-testid="backToSearchButton"
           />
         </div>
         {loading && <p className="movieInfoPage__infoText">Loading...</p>}

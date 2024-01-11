@@ -39,13 +39,16 @@ export default function SearchMoviePage() {
   return (
     <>
       <Header />
-      <section className="searchMoviePage">
+      <section className="searchMoviePage" data-testid="searchMoviePage">
         {loading && <h2 className="searchMoviePage__title">Loading...</h2>}
         {error && <h2 className="searchMoviePage__title">{error}</h2>}
         {!loading && !error && (
           <>
             <div className="searchMoviePage__header">
-              <p className="searchMoviePage__moviesCount">
+              <p
+                className="searchMoviePage__moviesCount"
+                data-testid="moviesCount"
+              >
                 {moviesData.length} movies found
               </p>
               <div className="searchMoviePage__filter">
