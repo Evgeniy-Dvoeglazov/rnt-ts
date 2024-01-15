@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1704954818761" clover="3.2.0">
-  <project timestamp="1704954818761" name="All files">
-    <metrics statements="599" coveredstatements="466" conditionals="209" coveredconditionals="136" methods="125" coveredmethods="81" elements="933" coveredelements="683" complexity="0" loc="599" ncloc="599" packages="23" files="45" classes="45"/>
+<coverage generated="1705158622825" clover="3.2.0">
+  <project timestamp="1705158622825" name="All files">
+    <metrics statements="599" coveredstatements="469" conditionals="207" coveredconditionals="138" methods="125" coveredmethods="83" elements="931" coveredelements="690" complexity="0" loc="599" ncloc="599" packages="23" files="45" classes="45"/>
     <package name="rnt-ts">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="filesMock.js" path="C:\Users\user\rnt\rnt-ts\filesMock.js">
@@ -137,10 +137,10 @@
       <metrics statements="33" coveredstatements="27" conditionals="8" coveredconditionals="5" methods="4" coveredmethods="2"/>
       <file name="app.css" path="C:\Users\user\rnt\rnt-ts\src\app\app.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -150,42 +150,42 @@
       </file>
       <file name="app.tsx" path="C:\Users\user\rnt\rnt-ts\src\app\app.tsx">
         <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
         <line num="20" count="13" type="stmt"/>
         <line num="22" count="13" type="stmt"/>
       </file>
       <file name="appStore.ts" path="C:\Users\user\rnt\rnt-ts\src\app\appStore.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.components.button">
       <metrics statements="15" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
       <file name="button.css" path="C:\Users\user\rnt\rnt-ts\src\components\button\button.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -195,63 +195,16 @@
       </file>
       <file name="button.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\button\button.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="86" type="stmt"/>
-        <line num="17" count="86" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="98" type="stmt"/>
+        <line num="17" count="98" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.components.footer">
       <metrics statements="14" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
       <file name="footer.css" path="C:\Users\user\rnt\rnt-ts\src\components\footer\footer.css">
-        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-      <file name="footer.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\footer\footer.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="10" type="stmt"/>
-      </file>
-    </package>
-    <package name="rnt-ts.src.components.formField">
-      <metrics statements="15" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
-      <file name="formField.css" path="C:\Users\user\rnt\rnt-ts\src\components\formField\formField.css">
-        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-      <file name="formField.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\formField\formField.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="130" type="stmt"/>
-        <line num="12" count="130" type="stmt"/>
-      </file>
-    </package>
-    <package name="rnt-ts.src.components.header">
-      <metrics statements="20" coveredstatements="14" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
-      <file name="header.css" path="C:\Users\user\rnt\rnt-ts\src\components\header\header.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
@@ -264,17 +217,64 @@
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
-      <file name="header.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\header\header.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="footer.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\footer\footer.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="11" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="rnt-ts.src.components.formField">
+      <metrics statements="15" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
+      <file name="formField.css" path="C:\Users\user\rnt\rnt-ts\src\components\formField\formField.css">
+        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="formField.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\formField\formField.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="130" type="stmt"/>
+        <line num="12" count="130" type="stmt"/>
+      </file>
+    </package>
+    <package name="rnt-ts.src.components.header">
+      <metrics statements="20" coveredstatements="14" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
+      <file name="header.css" path="C:\Users\user\rnt\rnt-ts\src\components\header\header.css">
+        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="header.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\header\header.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="12" count="17" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
       </file>
     </package>
@@ -298,17 +298,17 @@
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
-        <line num="5" count="22" type="stmt"/>
+        <line num="5" count="33" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.components.movie">
       <metrics statements="20" coveredstatements="14" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="3"/>
       <file name="movie.css" path="C:\Users\user\rnt\rnt-ts\src\components\movie\movie.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -318,15 +318,15 @@
       </file>
       <file name="movie.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\movie\movie.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="22" count="32" type="stmt"/>
-        <line num="23" count="32" type="stmt"/>
-        <line num="25" count="32" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="22" count="39" type="stmt"/>
+        <line num="23" count="39" type="stmt"/>
+        <line num="25" count="39" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="34" count="32" type="stmt"/>
+        <line num="34" count="39" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
       </file>
     </package>
@@ -334,10 +334,10 @@
       <metrics statements="15" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
       <file name="movieList.css" path="C:\Users\user\rnt\rnt-ts\src\components\movieList\movieList.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -347,21 +347,21 @@
       </file>
       <file name="movieList.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\movieList\movieList.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="12" count="32" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="12" count="39" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.components.radioButton">
       <metrics statements="16" coveredstatements="10" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
       <file name="radioButton.css" path="C:\Users\user\rnt\rnt-ts\src\components\radioButton\radioButton.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -371,17 +371,51 @@
       </file>
       <file name="radioButton.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\radioButton\radioButton.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="28" type="stmt"/>
-        <line num="17" count="28" type="stmt"/>
-        <line num="22" count="28" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="48" type="stmt"/>
+        <line num="17" count="48" type="stmt"/>
+        <line num="22" count="48" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.components.searchMovie">
-      <metrics statements="25" coveredstatements="17" conditionals="12" coveredconditionals="6" methods="5" coveredmethods="2"/>
+      <metrics statements="25" coveredstatements="19" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="3"/>
       <file name="searchMovie.css" path="C:\Users\user\rnt\rnt-ts\src\components\searchMovie\searchMovie.css">
+        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="searchMovie.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\searchMovie\searchMovie.tsx">
+        <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="18" count="17" type="stmt"/>
+        <line num="20" count="17" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="24" count="17" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="rnt-ts.src.pages.authorizationPage">
+      <metrics statements="34" coveredstatements="28" conditionals="15" coveredconditionals="12" methods="8" coveredmethods="6"/>
+      <file name="authorizationPage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\authorizationPage\authorizationPage.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
@@ -394,53 +428,19 @@
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
-      <file name="searchMovie.tsx" path="C:\Users\user\rnt\rnt-ts\src\components\searchMovie\searchMovie.tsx">
-        <metrics statements="15" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="2"/>
+      <file name="authorizationPage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\authorizationPage\authorizationPage.tsx">
+        <metrics statements="24" coveredstatements="24" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
-        <line num="16" count="11" type="stmt"/>
-        <line num="18" count="11" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="11" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="24" count="11" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-      </file>
-    </package>
-    <package name="rnt-ts.src.pages.authorizationPage">
-      <metrics statements="34" coveredstatements="28" conditionals="15" coveredconditionals="12" methods="8" coveredmethods="6"/>
-      <file name="authorizationPage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\authorizationPage\authorizationPage.css">
-        <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-      <file name="authorizationPage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\authorizationPage\authorizationPage.tsx">
-        <metrics statements="24" coveredstatements="24" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="18" count="10" type="stmt"/>
         <line num="19" count="10" type="stmt"/>
         <line num="20" count="10" type="stmt"/>
@@ -460,10 +460,10 @@
       <metrics statements="30" coveredstatements="24" conditionals="14" coveredconditionals="9" methods="6" coveredmethods="4"/>
       <file name="movieInfoPage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\movieInfoPage\movieInfoPage.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -473,14 +473,14 @@
       </file>
       <file name="movieInfoPage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\movieInfoPage\movieInfoPage.tsx">
         <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="6" methods="4" coveredmethods="4"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
@@ -499,10 +499,10 @@
       <metrics statements="15" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
       <file name="notFoundPage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\notFoundPage\notFoundPage.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -512,10 +512,10 @@
       </file>
       <file name="notFoundPage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\notFoundPage\notFoundPage.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
       </file>
     </package>
@@ -523,10 +523,10 @@
       <metrics statements="31" coveredstatements="24" conditionals="15" coveredconditionals="9" methods="7" coveredmethods="4"/>
       <file name="registrationPage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\registrationPage\registrationPage.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -536,16 +536,16 @@
       </file>
       <file name="registrationPage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\registrationPage\registrationPage.tsx">
         <metrics statements="21" coveredstatements="20" conditionals="9" coveredconditionals="6" methods="5" coveredmethods="4"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
@@ -560,13 +560,13 @@
       </file>
     </package>
     <package name="rnt-ts.src.pages.searchMoviePage">
-      <metrics statements="30" coveredstatements="23" conditionals="17" coveredconditionals="12" methods="5" coveredmethods="2"/>
+      <metrics statements="30" coveredstatements="23" conditionals="17" coveredconditionals="13" methods="5" coveredmethods="2"/>
       <file name="searchMoviePage.css" path="C:\Users\user\rnt\rnt-ts\src\pages\searchMoviePage\searchMoviePage.css">
         <metrics statements="10" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -575,173 +575,173 @@
         <line num="23" count="0" type="stmt"/>
       </file>
       <file name="searchMoviePage.tsx" path="C:\Users\user\rnt\rnt-ts\src\pages\searchMoviePage\searchMoviePage.tsx">
-        <metrics statements="20" coveredstatements="19" conditionals="11" coveredconditionals="9" methods="3" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="20" count="10" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
+        <metrics statements="20" coveredstatements="19" conditionals="11" coveredconditionals="10" methods="3" coveredmethods="2"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="26" count="10" type="stmt"/>
-        <line num="27" count="7" type="stmt"/>
-        <line num="31" count="7" type="stmt"/>
-        <line num="36" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="10" type="stmt"/>
+        <line num="26" count="16" type="stmt"/>
+        <line num="27" count="9" type="stmt"/>
+        <line num="31" count="9" type="stmt"/>
+        <line num="36" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="16" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.protectedRouteElement">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="protectedRouteElement.tsx" path="C:\Users\user\rnt\rnt-ts\src\protectedRouteElement\protectedRouteElement.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="11" count="10" type="stmt"/>
         <line num="12" count="10" type="stmt"/>
         <line num="14" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.store.auth">
       <metrics statements="48" coveredstatements="37" conditionals="6" coveredconditionals="2" methods="17" coveredmethods="11"/>
       <file name="authStore.ts" path="C:\Users\user\rnt\rnt-ts\src\store\auth\authStore.ts">
         <metrics statements="40" coveredstatements="30" conditionals="6" coveredconditionals="2" methods="15" coveredmethods="10"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
         <line num="44" count="5" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
+        <line num="55" count="4" type="stmt"/>
         <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
         <line num="65" count="1" type="stmt"/>
         <line num="66" count="1" type="stmt"/>
-        <line num="71" count="3" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
         <line num="72" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="76" count="3" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="78" count="0" type="stmt"/>
-        <line num="80" count="3" type="stmt"/>
+        <line num="80" count="4" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="90" count="50" type="stmt"/>
-        <line num="93" count="3" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
       </file>
       <file name="authorize.ts" path="C:\Users\user\rnt\rnt-ts\src\store\auth\authorize.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
       </file>
       <file name="register.ts" path="C:\Users\user\rnt\rnt-ts\src\store\auth\register.ts">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.store.movie">
-      <metrics statements="32" coveredstatements="28" conditionals="9" coveredconditionals="7" methods="13" coveredmethods="10"/>
+      <metrics statements="32" coveredstatements="29" conditionals="9" coveredconditionals="7" methods="13" coveredmethods="11"/>
       <file name="movieStore.ts" path="C:\Users\user\rnt\rnt-ts\src\store\movie\movieStore.ts">
-        <metrics statements="28" coveredstatements="24" conditionals="9" coveredconditionals="7" methods="12" coveredmethods="9"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="18" count="7" type="stmt"/>
-        <line num="19" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
+        <metrics statements="28" coveredstatements="25" conditionals="9" coveredconditionals="7" methods="12" coveredmethods="10"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="19" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
         <line num="45" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
-        <line num="60" count="7" type="stmt"/>
-        <line num="61" count="7" type="stmt"/>
-        <line num="63" count="3" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="9" type="stmt"/>
+        <line num="61" count="9" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
         <line num="69" count="0" type="stmt"/>
-        <line num="74" count="34" type="stmt"/>
-        <line num="77" count="3" type="stmt"/>
+        <line num="74" count="48" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
       </file>
       <file name="readMovies.ts" path="C:\Users\user\rnt\rnt-ts\src\store\movie\readMovies.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
       </file>
     </package>
     <package name="rnt-ts.src.store.movieInfo">
       <metrics statements="24" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="9" coveredmethods="7"/>
       <file name="movieInfoStore.ts" path="C:\Users\user\rnt\rnt-ts\src\store\movieInfo\movieInfoStore.ts">
         <metrics statements="20" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="6"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="49" count="3" type="stmt"/>
-        <line num="52" count="3" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
       </file>
       <file name="readMovieInfo.ts" path="C:\Users\user\rnt\rnt-ts\src\store\movieInfo\readMovieInfo.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
@@ -749,15 +749,15 @@
       <metrics statements="31" coveredstatements="31" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
       <file name="constants.ts" path="C:\Users\user\rnt\rnt-ts\src\utils\constants\constants.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
       </file>
       <file name="url.ts" path="C:\Users\user\rnt\rnt-ts\src\utils\constants\url.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
       </file>
       <file name="validate.ts" path="C:\Users\user\rnt\rnt-ts\src\utils\constants\validate.ts">
         <metrics statements="29" coveredstatements="29" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
         <line num="4" count="24" type="stmt"/>
         <line num="6" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="7" count="2" type="stmt"/>
@@ -770,7 +770,7 @@
         <line num="16" count="12" type="cond" truecount="1" falsecount="0"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="24" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
         <line num="27" count="10" type="stmt"/>
         <line num="28" count="10" type="stmt"/>
         <line num="30" count="10" type="cond" truecount="1" falsecount="0"/>
@@ -792,11 +792,11 @@
       <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="useLogin.ts" path="C:\Users\user\rnt\rnt-ts\src\utils\hooks\useLogin.ts">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="8" count="13" type="stmt"/>
         <line num="9" count="13" type="stmt"/>
         <line num="10" count="13" type="stmt"/>

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header snapshot 1`] = `
+<header
+  class="header"
+  data-testid="header"
+>
+  <div
+    class="header__navigation"
+  >
+    <img
+      alt="logo"
+      class="logo"
+    />
+    <button
+      class="button button_withoutBackground"
+      title="Log Out"
+      type="button"
+      variant="withoutBackground"
+    >
+      Log Out
+    </button>
+  </div>
+  <section
+    class="searchMovie"
+    data-testid="searchMovie"
+  >
+    <h1
+      class="searchMovie__title"
+    >
+      Find your movie
+    </h1>
+    <form>
+      <input
+        class="searchMovie__input"
+        data-testid="searchMovieInput"
+        placeholder="Enter title"
+        type="text"
+      />
+      <div
+        class="searchMovie__buttons"
+      >
+        <div
+          class="searchMovie__filter"
+        >
+          <p
+            class="searchMovie__filter-description"
+          >
+            search by
+          </p>
+          <label
+            class="radioButton"
+          >
+            <input
+              checked=""
+              class="radioButton__input"
+              data-testid="searchModeTitle"
+              mode="title"
+              type="radio"
+              variant="withBorder"
+            />
+            <span
+              class="radioButton__span radioButton__span_withBorder"
+            >
+              title
+            </span>
+          </label>
+          <label
+            class="radioButton"
+          >
+            <input
+              class="radioButton__input"
+              data-testid="searchModeGenre"
+              mode="genre"
+              type="radio"
+              variant="withBorder"
+            />
+            <span
+              class="radioButton__span radioButton__span_withBorder"
+            >
+              genre
+            </span>
+          </label>
+        </div>
+        <button
+          class="button button_withBackground"
+          data-testid="searchMovieButton"
+          title="Search"
+          type="submit"
+          variant="withBackground"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </section>
+</header>
+`;

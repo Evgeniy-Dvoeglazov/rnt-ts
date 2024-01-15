@@ -1,3 +1,4 @@
+import React from "react";
 import { Pages } from "../../app/app";
 import "./notFoundPage.css";
 import { Link } from "react-router-dom";

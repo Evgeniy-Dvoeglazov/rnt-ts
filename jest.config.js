@@ -11,4 +11,5 @@ module.exports = {
   },
   testMatch: ["**/?(*.)(spec|test).[jt]s?(x)"], // Finds test files named like abc.test|spec.ts?tsx|js|jsx in roots:[] prop.
   testEnvironment: "jsdom", // To avoid of js DOM errors
+  setupFilesAfterEnv: ["jest-expect-message"],
 };

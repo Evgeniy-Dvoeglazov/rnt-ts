@@ -38,6 +38,7 @@ export default function SearchMovie() {
           placeholder={`Enter ${
             searchMode === SearchMode.Title ? "title" : "genre"
           }`}
+          data-testid="searchMovieInput"
         />
         <div className="searchMovie__buttons">
           <div className="searchMovie__filter">
@@ -57,7 +58,12 @@ export default function SearchMovie() {
               data-testid="searchModeGenre"
             />
           </div>
-          <Button variant="withBackground" title="Search" type="submit" />
+          <Button
+            variant="withBackground"
+            title="Search"
+            type="submit"
+            data-testid="searchMovieButton"
+          />
         </div>
       </form>
     </section>

@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/jest-globals";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { expect, test, describe } from "@jest/globals";
+import { test, describe } from "@jest/globals";
 import React from "react";
 import AuthorizationPage from "../../pages/authorizationPage/authorizationPage";
 import { Provider } from "react-redux";
