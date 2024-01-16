@@ -17,6 +17,7 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "no-undef": "warn",
     "no-multiple-empty-lines": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
   },
   root: true,
 };

@@ -22,7 +22,7 @@ export default function SearchMovie() {
   }, [dispatch]);
 
   return (
-    <section className="searchMovie">
+    <section className="searchMovie" data-testid="searchMovie">
       <h1 className="searchMovie__title">Find your movie</h1>
       <form
         onSubmit={(e) => {
@@ -38,6 +38,7 @@ export default function SearchMovie() {
           placeholder={`Enter ${
             searchMode === SearchMode.Title ? "title" : "genre"
           }`}
+          data-testid="searchMovieInput"
         />
         <div className="searchMovie__buttons">
           <div className="searchMovie__filter">
@@ -47,15 +48,22 @@ export default function SearchMovie() {
               checked={searchMode === SearchMode.Title}
               onChange={handleChangeSearchMode}
               variant="withBorder"
+              data-testid="searchModeTitle"
             />
             <RadioButton
               mode="genre"
               checked={searchMode === SearchMode.Genre}
               onChange={handleChangeSearchMode}
               variant="withBorder"
+              data-testid="searchModeGenre"
             />
           </div>
-          <Button variant="withBackground" title="Search" type="submit" />
+          <Button
+            variant="withBackground"
+            title="Search"
+            type="submit"
+            data-testid="searchMovieButton"
+          />
         </div>
       </form>
     </section>

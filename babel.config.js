@@ -13,6 +13,7 @@ const presets = [
       useBuiltIns: "entry",
     },
   ],
+  "@babel/preset-react",
 ];
 
 module.exports = { presets };

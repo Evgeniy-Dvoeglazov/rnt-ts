@@ -24,7 +24,7 @@ export default function AuthorizationPage() {
   }, [loggedIn, navigate]);
 
   return (
-    <section className="authorizationPage">
+    <section className="authorizationPage" data-testid="authorizationPage">
       <h2 className="authorizationPage__title">Sign in</h2>
       <Formik
         initialValues={{
@@ -38,18 +38,34 @@ export default function AuthorizationPage() {
           const error = (name: string) =>
             touched[name] &&
             errors[name] && (
-              <p className="authorizationPage__error">{errors[name]}</p>
+              <p
+                className="authorizationPage__error"
+                data-testid="validationError"
+              >
+                {errors[name]}
+              </p>
             );
           return (
             <Form className="authorizationPage__form">
-              <FormField name="email" type="email" error={error("email")} />
+              <FormField
+                name="email"
+                type="email"
+                error={error("email")}
+                data-testid="emailInput"
+              />
               <FormField
                 name="password"
                 type="password"
                 error={error("password")}
+                data-testid="passwordInput"
               />
               {serverError && (
-                <p className="authorizationPage__serverError">{serverError}</p>
+                <p
+                  className="authorizationPage__serverError"
+                  data-testid="serverError"
+                >
+                  {serverError}
+                </p>
               )}
               <Button
                 title={loading ? "Loading..." : "Sign in"}
@@ -57,6 +73,7 @@ export default function AuthorizationPage() {
                 type="submit"
                 className="button__center"
                 disabled={loading}
+                data-testid="signInSubmitBtn"
               />
             </Form>
           );
@@ -72,6 +89,7 @@ export default function AuthorizationPage() {
           title="Sign up"
           variant="textLink"
           type="button"
+          data-testid="signUpNavigateButton"
         />
       </span>
     </section>

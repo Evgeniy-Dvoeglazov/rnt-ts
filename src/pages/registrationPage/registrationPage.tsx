@@ -19,7 +19,7 @@ export default function RegistrationPage() {
   const { serverError, loading, successRegister } = useSelector(authSelector);
 
   return (
-    <section className="registrationPage">
+    <section className="registrationPage" data-testid="registrationPage">
       <h2 className="registrationPage__title">Sign up</h2>
       <Formik
         initialValues={{
@@ -35,7 +35,10 @@ export default function RegistrationPage() {
           const error = (name: string) =>
             touched[name] &&
             errors[name] && (
-              <p className="registrationPage__validationError">
+              <p
+                className="registrationPage__validationError"
+                data-testid="validationError"
+              >
                 {errors[name]}
               </p>
             );
@@ -46,17 +49,25 @@ export default function RegistrationPage() {
                 name="username"
                 type="text"
                 error={error("username")}
+                data-testid="usernameInput"
               />
-              <FormField name="email" type="email" error={error("email")} />
+              <FormField
+                name="email"
+                type="email"
+                error={error("email")}
+                data-testid="emailInput"
+              />
               <FormField
                 name="password"
                 type="password"
                 error={error("password")}
+                data-testid="passwordInput"
               />
               <FormField
                 name="confirmPassword"
                 type="password"
                 error={error("confirmPassword")}
+                data-testid="passwordConfirmInput"
               />
               {successRegister && (
                 <p className="registrationPage__successMessage">
@@ -72,6 +83,7 @@ export default function RegistrationPage() {
                 type="submit"
                 className="button__center"
                 disabled={loading}
+                data-testid="signUpSubmitBtn"
               />
             </Form>
           );
@@ -87,6 +99,7 @@ export default function RegistrationPage() {
           title="Sign in"
           variant="textLink"
           type="button"
+          data-testid="signInNavigateButton"
         />
       </span>
     </section>

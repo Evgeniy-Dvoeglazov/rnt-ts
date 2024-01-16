@@ -37,6 +37,7 @@ export function Movie({ movie }: MovieProps) {
       onClick={() => {
         openMovieInfo(movie);
       }}
+      data-testid="movie"
     >
       <img className="movie__image" src={movie.image} alt={movie.title} />
       <div className="movie__info">
